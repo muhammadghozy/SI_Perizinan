@@ -24,7 +24,7 @@ if(isset($_POST['submit'])){
     $wktmulai        = $_POST['wkt_mulai'];
     $wktselesai      = $_POST['wkt_selesai'];  
 
-    $simpan = "INSERT INTO tb_form_lab VALUES(NULL,'$nama','$NIM','$alamat','$notelp','$judulpenelitian','$pembimbing','$laboratorium','$syarat1','$syarat2','$syarat3','$syarat4','$syarat5','$syarat6','$syarat7','$syarat8','$syarat9','$tglmulai','$tglselesai','$wktmulai, '$wktselesai')";
+    $simpan = "INSERT INTO tb_form_lab VALUES('$nama','$NIM','$alamat','$notelp','$judulpenelitian','$pembimbing','$laboratorium','$syarat1','$syarat2','$syarat3','$syarat4','$syarat5','$syarat6','$syarat7','$syarat8','$syarat9','$tglmulai','$tglselesai','$wktmulai, '$wktselesai')";
     
     $result = mysqli_query($db1,$simpan)or die(mysqli_error($db1));
 

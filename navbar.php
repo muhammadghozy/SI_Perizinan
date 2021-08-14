@@ -27,250 +27,248 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-	
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="dashboard.php" class="brand-link">
-      <span class="brand-text font-weight-light">
-      PERIZINAN LAB<br>
-	  FAKULTAS TEKNIK</span>
-    </a>
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      <!-- Sidebar Menu -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <!-- Brand Logo -->
+      <a href="dashboard.php" class="brand-link">
+        <span class="brand-text font-weight-light">
+        PERIZINAN LAB<br>
+      FAKULTAS TEKNIK</span>
+      </a>
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <!-- Sidebar Menu -->
+      <?php 
+      if (isset($_SESSION['nama'])):
+    if ($_SESSION['level'] == "Mahasiswa"):
+      ?>
+      <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+                 with font-awesome or any other icon font library -->
+            <li class="nav-item has-treeview ">
+              <a href="dashboard.php" class="nav-link">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                  Dashboard
+                </p>
+              </a>
+  
+            <li class="nav-item has-treeview">
+              <a href="perizinan.php" class="nav-link">
+                <i class="nav-icon fas fa-edit"></i>
+                <p>
+                  Form Perizinan</p>
+              </a>
+            </li>
+  
+            <li class="nav-item has-treeview">
+              <a href="statuspengajuan.php" class="nav-link">
+                <i class="nav-icon fas fa-edit"></i>
+               <p>
+                  Status Pengajuan
+               </p>
+              </a>
+            </li>
+            <li class="nav-item has-treeview">
+              <a href="logout.php" class="nav-link">
+                <p>
+                  Logout</p>
+              </a>
+            
+            </li>
+           
+          </ul>
+        </nav>
     <?php
-	if ($_SESSION['level'] == "Mahasiswa") {
-		?>
-	  <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview ">
-            <a href="dashboard.php" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Dashboard
-              </p>
-            </a>
-
-          <li class="nav-item has-treeview">
-            <a href="perizinan.php" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Form Perizinan</p>
-            </a>
-          </li>
-
-		      <li class="nav-item has-treeview">
-            <a href="statuspengajuan.php" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-             <p>
-                Status Pengajuan
-			       </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="logout.php" class="nav-link">
-              <p>
-                Logout</p>
-            </a>
-          
-          </li>
-         
-        </ul>
-      </nav>
-	<?php
-	}
-	elseif ($_SESSION['level'] == "kalab" || $_SESSION['level'] == "fakultas") {
-		?>
-	  <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview">
-            <a href="dashboard.php" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Dashboard
-              </p>
-            </a>
-      
-          </li>
-          <li class="nav-item"></li>
-          <li class="nav-item has-treeview">
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Top Navigation</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Top Navigation + Sidebar</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/boxed.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Boxed</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Fixed Sidebar</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-topnav.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Fixed Navbar</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-footer.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Fixed Footer</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/collapsed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Collapsed Sidebar</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          
-          <li class="nav-item has-treeview">
-            <a href="validasiformulir.php" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Validasi Perizinan</p>
-            </a>
-          </li>
-
-         <li class="nav-item has-treeview">
-            <a href="logout.php" class="nav-link">
-              <p>
-                Logout</p>
-            </a>
-          </li>
-        </ul>
-      </nav>
-	<?php
-	}
-	elseif ($_SESSION['level'] == "Admin") {
-		?>
-	  <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview">
-            <a href="dashboard.php" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Dashboard
-              </p>
-            </a>
-      
-          </li>
-          <li class="nav-item"></li>
-          <li class="nav-item has-treeview">
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Top Navigation</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Top Navigation + Sidebar</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/boxed.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Boxed</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Fixed Sidebar</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-topnav.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Fixed Navbar</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-footer.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Fixed Footer</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/collapsed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Collapsed Sidebar</p>
-                </a>
-              </li>
-            </ul>
-          </li>
+    elseif ($_SESSION['level'] == "kalab" || $_SESSION['level'] == "fakultas"):
+      ?>
+      <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+                 with font-awesome or any other icon font library -->
+            <li class="nav-item has-treeview">
+              <a href="dashboard.php" class="nav-link">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                  Dashboard
+                </p>
+              </a>
+        
+            </li>
+            <li class="nav-item"></li>
+            <li class="nav-item has-treeview">
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="pages/layout/top-nav.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Top Navigation</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Top Navigation + Sidebar</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/layout/boxed.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Boxed</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/layout/fixed-sidebar.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Fixed Sidebar</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/layout/fixed-topnav.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Fixed Navbar</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/layout/fixed-footer.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Fixed Footer</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/layout/collapsed-sidebar.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Collapsed Sidebar</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item has-treeview">
+              <a href="validasiformulir.php" class="nav-link">
+                <i class="nav-icon fas fa-edit"></i>
+                <p>
+                  Validasi Perizinan</p>
+              </a>
+            </li>
+  
            <li class="nav-item has-treeview">
-            <a href="perizinan.php" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Form Perizinan</p>
-            </a>
-          </li>
-		  
-		 <li class="nav-item has-treeview">
-            <a href="statuspengajuan.php" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-             <p>
-                Status Pengajuan
-			</p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview">
-            <a href="validasiformulir.php" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Validasi Perizinan</p>
-            </a>
-          </li>
-
-         <li class="nav-item has-treeview">
-            <a href="logout.php" class="nav-link">
-              <p>
-                Logout</p>
-            </a>
-          </li>
-        </ul>
-      </nav>
-	<?php
-	}
-  else{
+              <a href="logout.php" class="nav-link">
+                <p>
+                  Logout</p>
+              </a>
+            </li>
+          </ul>
+        </nav>
+    <?php
+    elseif ($_SESSION['level'] == "Admin"):
+      ?>
+      <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+                 with font-awesome or any other icon font library -->
+            <li class="nav-item has-treeview">
+              <a href="dashboard.php" class="nav-link">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <p>
+                  Dashboard
+                </p>
+              </a>
+        
+            </li>
+            <li class="nav-item"></li>
+            <li class="nav-item has-treeview">
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="pages/layout/top-nav.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Top Navigation</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Top Navigation + Sidebar</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/layout/boxed.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Boxed</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/layout/fixed-sidebar.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Fixed Sidebar</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/layout/fixed-topnav.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Fixed Navbar</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/layout/fixed-footer.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Fixed Footer</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/layout/collapsed-sidebar.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Collapsed Sidebar</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+             <li class="nav-item has-treeview">
+              <a href="perizinan.php" class="nav-link">
+                <i class="nav-icon fas fa-edit"></i>
+                <p>
+                  Form Perizinan</p>
+              </a>
+            </li>
+        
+       <li class="nav-item has-treeview">
+              <a href="statuspengajuan.php" class="nav-link">
+                <i class="nav-icon fas fa-edit"></i>
+               <p>
+                  Status Pengajuan
+        </p>
+              </a>
+            </li>
+            <li class="nav-item has-treeview">
+              <a href="validasiformulir.php" class="nav-link">
+                <i class="nav-icon fas fa-edit"></i>
+                <p>
+                  Validasi Perizinan</p>
+              </a>
+            </li>
+  
+           <li class="nav-item has-treeview">
+              <a href="logout.php" class="nav-link">
+                <p>
+                  Logout</p>
+              </a>
+            </li>
+          </ul>
+        </nav>
+    <?php
+    endif;
+  else:
     ?>
-    <li class="nav-item has-treeview">
-    <a href="login.php" class="nav-link">
-      <p>
-        Login</p>
-    </a>
-  </li>
-  <?php
-  }
-	?>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-</aside>
+  <li class="nav-item has-treeview">
+  <a href="login.php" class="nav-link">
+    <p>
+      Login</p>
+  </a>
+</li>
+    <?php
+  endif;
+      ?>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+  </aside>
