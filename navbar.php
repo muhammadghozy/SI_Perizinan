@@ -31,8 +31,8 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="dashboard.php" class="brand-link">
-      <span class="brand-text font-weight-light">SISTEM INFORMASI <br>
-      PERIZINAN<br>
+      <span class="brand-text font-weight-light">
+      PERIZINAN LAB<br>
 	  FAKULTAS TEKNIK</span>
     </a>
     <!-- Sidebar -->
@@ -82,10 +82,7 @@
       </nav>
 	<?php
 	}
-	?>
-	
-    <?php
-	if ($_SESSION['level'] == "Dosen") {
+	elseif ($_SESSION['level'] == "kalab" || $_SESSION['level'] == "fakultas") {
 		?>
 	  <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -166,9 +163,7 @@
       </nav>
 	<?php
 	}
-	?>
-    <?php
-	if ($_SESSION['level'] == "Admin" || $_SESSION['level'] == "Dosen,Admin") {
+	elseif ($_SESSION['level'] == "Admin") {
 		?>
 	  <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -264,6 +259,16 @@
       </nav>
 	<?php
 	}
+  else{
+    ?>
+    <li class="nav-item has-treeview">
+    <a href="login.php" class="nav-link">
+      <p>
+        Login</p>
+    </a>
+  </li>
+  <?php
+  }
 	?>
       <!-- /.sidebar-menu -->
     </div>

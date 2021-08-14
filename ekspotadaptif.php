@@ -117,9 +117,9 @@ ob_start();
 					<td><?php echo $row['Pembimbing']; ?></td>
 				</tr>
 				<tr>
-					<td style="width:170px; line-height:1.5">Laboratorium/lokasi kerja (sebutkan lokasi kerja/ laboratorium lain yang akan dipakai)</td>
-					<td style="padding-bottom:74px">:</td>
-					<td style="padding-bottom:74px"><?php echo $row['Laboratorium']; ?></td>
+					<td>Laboratorium/lokasi kerja</td>
+					<td>:</td>
+					<td><?php echo $row['Laboratorium']; ?></td>
 				</tr>
 		</table>
 	<p class="justify" style="font-family:ctimes; font-size:15.937767px; margin:0px; margin-bottom:10.625178px">
@@ -353,17 +353,7 @@ ob_start();
 					<td style="text-align: center;"><img src="upload/ACC/<?php echo $row['Kalab'];?>.jpg" width="90" height="60"></td>
 				</tr>	
 				<tr>
-					<td style="padding=2px">2. Pembimbing</td>
-					<td class="center" style="padding=5px">
-					<?php echo  $row['Pembimbing']; ?>
-					</td>
-					<td class="center" style="padding=5px">
-					<?php echo  $day3."-".$explode2[1]."-".$explode2[0]; ?>
-					</td>
-					<td style="text-align: center;"><img src="upload/ACC/<?php echo $row['Pembimbing'];?>.jpg" width="90" height="60"></td>
-				</tr>
-				<tr>
-					<td style="padding=2px">3. Tim K3L/Fakultas</td>
+					<td style="padding=2px">2. Tim K3L/Fakultas</td>
 					<td class="center">
 					<?php echo  $row['Tim_Fakultas']; ?>
 					</td>

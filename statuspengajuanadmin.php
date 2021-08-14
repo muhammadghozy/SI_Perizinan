@@ -13,6 +13,7 @@ include_once 'navbar.php';
 			text-align:center;
 		}
 	</style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -77,20 +78,19 @@ include_once 'navbar.php';
 	    	<thead>
 	    		<tr>
 	    			<td>No</td>
-                    <td>Nama Mahasiswa</td>
+            <td>Nama Mahasiswa</td>
 	    			<td>Laboratorium</td>
 	    			<td>Tanggal Mulai</td>
-                    <td>Tanggal Selesai</td>
-	    			<td>Dosen Pembimbing</td>
-                    <td>Kepala Laboratorium</td>
-                    <td>Tim K3L/Fakultas</td>
+            <td>Tanggal Selesai</td>
+            <td>Kepala Laboratorium</td>
+            <td>Tim K3L/Fakultas</td>
 	    			<td>Status</td>
-                    <td>Pengunduhan Formulir</td>
-                    <td></td>
+            <td>Pengunduhan Formulir</td>
+            <td>Delete</td>
 	    		</tr>
 	    	</thead>
 	    	<tbody >
-                <?php
+            <?php
                     $batas = 5;
                     $hal = @$_GET['hal'];
                     if(empty($hal)){
@@ -123,7 +123,7 @@ include_once 'navbar.php';
                             echo "Jumlah data : <b>$jml</b>";
                         }
                     }else{
-                        $query = "SELECT * FROM tb_form_lab LIMIT $posisi, $batas";
+                        $query = "SELECT * FROM tb_form_lab ORDER BY id DESC LIMIT $posisi, $batas";
                         $queryjml = "SELECT * FROM tb_form_lab";
                         $dewan1 = $db1->prepare($queryjml);
                         $dewan1->execute();
@@ -137,59 +137,53 @@ include_once 'navbar.php';
 			        $res1 = $dewan1->get_result();
 			        if ($res1->num_rows > 0) {
 				        while ($row = $res1->fetch_assoc()) {
-                            $Mahasiswa = $row['Nama_mahasiswa'];
+                    $Mahasiswa = $row['Nama_mahasiswa'];
 				            $Laboratorium = $row['Laboratorium'];
 				            $tgl_mulai = $row['tgl_mulai'];
 				            $tgl_selesai = $row['tgl_selesai'];
-				            $Pembimbing = $row['Pembimbing'];
-                            $Kalab = $row['Kalab'];
-                            $fakultas = $row['Tim_Fakultas'];
-                            $acc1 = $row['acc_pembimbing'];
-                            $acc2 = $row['acc_kalab'];
-                            $acc3 = $row['acc_fakultas'];
-							echo "<tr>";
-								echo "<td>".$no++."</td>";
-                                echo "<td>".$Mahasiswa."</td>";
-								echo "<td>".$Laboratorium."</td>";
-								echo "<td>".$tgl_mulai."</td>";
-								echo "<td>".$tgl_selesai."</td>";
-								echo "<td>".$Pembimbing."</td>";
-                                echo "<td>".$Kalab."</td>";
-                                echo "<td>".$fakultas."</td>";
+                    $Kalab = $row['Kalab'];
+                    $fakultas = $row['Tim_Fakultas'];
+                    $acc1 = $row['acc_kalab'];
+                    $acc2 = $row['acc_fakultas'];
+							            echo "<tr>";
+								          echo "<td>".$no++."</td>";
+                          echo "<td>".$Mahasiswa."</td>";
+								          echo "<td>".$Laboratorium."</td>";
+                          echo "<td>".$tgl_mulai."</td>";
+                          echo "<td>".$tgl_selesai."</td>";
+                          echo "<td>".$Kalab."</td>";
+                          echo "<td>".$fakultas."</td>";
 								?> 
-                                <td>
-								<?php
-                                if($acc1==1){
-                                    echo "<img src='images/ACC/ACC.PNG' width=80px height=30px>";
-                                }else{
-                                    echo "<img src='images/ACC/Belum_ACC.PNG' width=80px height=30px>";
-                                }
-                                if($acc2==1){
-                                    echo "<img src='images/ACC/ACC.PNG' width=80px height=30px>";
-                                }else{
-                                    echo "<img src='images/ACC/Belum_ACC.PNG' width=80px height=30px>";
-                                }
-                                if($acc3==1){
-                                    echo "<img src='images/ACC/ACC.PNG' width=80px height=30px>";
-                                }else{
-                                    echo "<img src='images/ACC/Belum_ACC.PNG' width=80px height=30px>";
-                                }                              
-                                ?>
+                <td>
+								<?php if($acc1==1):?>
+                                    <i class="fa-2x fas fa-check"></i>
+                                <?php else:?>
+                                    <i class= "fa-2x fas fa-times"></i>
+                                <?php endif;?>
+                                <br>
+                                <?php if($acc2==1):?>
+                                    <i class="fa-2x fas fa-check"></i>
+                                <?php else:?>
+                                    <i class="fa-2x fas fa-times"></i>                    
+                                <?php endif?>
 								</td>
 								<td>
 								<a href="eksporadaptif.php?id=<?=$row['Id']?>">
-									<button class="download">Download</button>
+                <button class="btn btn-primary mt-3">Download</button>
 								</a>
 								</td>
-                                <td class="text-center">
-                                    <a href="delete.php?id=<?=$row['Id']?>">
-                                    <button class="btn btn-danger">
-                                    <div style="font-size: 0.5rem;">
-                                    <i class="fa fa-trash fa-lg" aria-hidden="true">
-                                    </i>
-                                    </div>
-                                    </button>
-                                    </a>
+                <td class="text-center">
+                  <div class="mt-3">
+                  <a href="delete.php?id=<?=$row['Id']?>">
+                  <button class="btn btn-danger">
+                  <div style="font-size: 1rem;">
+                  <i class="fa fa-trash" aria-hidden="true">
+                  </i>
+                  </div>
+                  </button>
+                  </a>
+                  </div>
+                </td>
 							<?php
 							echo "</tr>";
 			    	} } else { 
@@ -201,28 +195,23 @@ include_once 'navbar.php';
 	    	</tbody>
 	    </table>
     </div>
-    <div style="float:left;">
-            <?php
-            $dewan1 = $db1->prepare($queryjml);
-            $dewan1->execute();
-            $res1 = $dewan1->get_result();
-            $jml = $res1->num_rows;               
-            ?>
-        </div>
-    <div style="float:right;">
-        <ul class="pagination pagination-sm" style="margin:0">
-            <?php
+<div>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+        
+        <?php
             $jml_hal = ceil($jml / $batas);
             for($i=1; $i <= $jml_hal; $i++){
                 if($i != $hal){
-                    echo "<li><a href=\"?hal=$i\">$i</a></li>";
+                    echo "<li class=\"page-item\"><a class=\"page-link\" href=\"?hal=$i\">$i</a></li>";
                 }else{
-                    echo "<li class=\"active\"><a>$i</a></li>";
+                    echo "<li class=\"page-item active\"><a class=\"page-link\">$i</a></li>";
                 }
             }
             ?>
         </ul>
-    </div>
+      </nav>
+      </div>
 	<br>
 	<br>
 	<br>

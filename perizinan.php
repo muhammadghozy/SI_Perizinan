@@ -76,70 +76,27 @@
       </div>
       <div class="form-group">
         <label>Promotor/Pembimbing/PIC</label>
-        <select class="form-control" name="Pembimbing" required> 
-        <?php
-            $query = "SELECT * FROM tuser WHERE LENGTH(nim)>10";
-            $dewan1 = $db1->prepare($query);
-            $dewan1->execute();
-            $res1 = $dewan1->get_result();
-            if ($res1->num_rows > 0) {
-              while ($row = $res1->fetch_assoc()) { 
-        ?>
-                <option value="<?php echo $row['nama']?>"><?php echo $row['nama']; ?></option>
-        <?php
-          }
-        }
-        ?>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Kepala Laboratorium</label>
-        <select class="form-control" name="Kalab" required>  
-        <?php
-            $query = "SELECT * FROM tuser WHERE LENGTH(nim)>10";
-            $dewan1 = $db1->prepare($query);
-            $dewan1->execute();
-            $res1 = $dewan1->get_result();
-            if ($res1->num_rows > 0) {
-              while ($row = $res1->fetch_assoc()) { 
-        ?>
-                <option value="<?php echo $row['nama']?>"><?php echo $row['nama']; ?></option>
-        <?php
-          }
-        }
-        ?>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Tim K3L</label>
-        <select class="form-control" name="Tim_Fakultas" required> 
-        <?php
-            $query = "SELECT * FROM tuser WHERE LENGTH(nim)>10";
-            $dewan1 = $db1->prepare($query);
-            $dewan1->execute();
-            $res1 = $dewan1->get_result();
-            if ($res1->num_rows > 0) {
-              while ($row = $res1->fetch_assoc()) { 
-        ?>
-                <option value="<?php echo $row['nama']?>"><?php echo $row['nama']; ?></option>
-        <?php
-          }
-        }
-        ?>
-        </select>
+        <input type="text" name="Pembimbing" class="form-control" placeholder="Masukkan Nama Pembimbing" required/>
       </div>
       <div class="form-group">
         <label>Laboratorium</label>
         <select class="form-control" name="Laboratorium" required>
-          <option value="Teknik Elektro">Teknik Elektro</option>
-          <option value="Teknik Mesin">Teknik Mesin</option>
-          <option value="Teknik Industri">Teknik Industri</option>
-          <option value="Teknik Kimia">Teknik Kimia</option>
-          <option value="Teknik Arsitektur">Teknik Arsitektur</option>
-          <option value="Teknik PWK">Teknik PWK</option>
-          <option value="Teknik Sipil">Teknik Sipil</option>
+        <?php
+            $query = "SELECT * FROM tlab";
+            $dewan1 = $db1->prepare($query);
+            $dewan1->execute();
+            $res1 = $dewan1->get_result();
+            if ($res1->num_rows > 0) {
+              while ($row = $res1->fetch_assoc()) { 
+        ?>
+                <option value="<?php echo $row['lab_ft']?>"><?php echo $row['lab_ft']; ?></option>
+        <?php
+          }
+        }
+        ?>
         </select>
       </div>
+
   <div class="container-fluid">
     <h2>Bersedia melaksanakan hal-hal sebagai berikut :</h2>
       <table class="table table-hover">
@@ -214,10 +171,14 @@
     <tr>
       <th>Tanggal Mulai</th>
       <th>Tanggal Selesai</th>
+      <th>Waktu Mulai</th>
+      <th>Waktu Selesai</th>
     </tr>
     <tr>
       <th><input type="date" class="form-control" name="tgl_mulai" required></th>
       <th><input type="date" class="form-control" name="tgl_selesai" required></th>
+      <th><input type="time" class="form-control" name="wkt_mulai" required></th>
+      <th><input type="time" class="form-control" name="wkt_selesai" required></th>
     </tr>
     </thead>
 	</table>

@@ -33,11 +33,11 @@ if ($user_valid) {
         //uji level user
         if ($user_valid['level'] == "Mahasiswa") {
         echo "<script>document.location='dashboard.php'</script>";
-        } elseif ($user_valid['level'] == "Dosen") {
+        } elseif ($user_valid['level'] == "kalab") {
         echo "<script>document.location='dashboard.php'</script>";
         } elseif ($user_valid['level'] == "Admin") {
 		echo "<script>document.location='dashboard.php'</script>";
-        }elseif ($user_valid['level'] == "Dosen,Admin") {
+        }elseif ($user_valid['level'] == "fakultas") {
 		echo "<script>document.location='dashboard.php'</script>";
     } else {
         echo "<script>alert('Maaf, Login Gagal, Password anda tidak sesuai!');document.location='login.php'</script>";

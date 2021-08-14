@@ -110,9 +110,9 @@ ob_start();
 					<td><?php echo $row['Pembimbing']; ?></td>
 				</tr>
 				<tr>
-					<td style="width:170px; line-height:1.5">Laboratorium/lokasi kerja (sebutkan lokasi kerja/ laboratorium lain yang akan dipakai)</td>
-					<td style="padding-bottom:74px">:</td>
-					<td style="padding-bottom:74px"><?php echo $row['Laboratorium']; ?></td>
+					<td>Laboratorium/lokasi kerja</td>
+					<td>:</td>
+					<td><?php echo $row['Laboratorium']; ?></td>
 				</tr>
 		</table>
 	<p class="justify" style="font-family:ctimes; font-size:15.937767px; margin:0px; margin-bottom:10.625178px">
@@ -391,42 +391,32 @@ ob_start();
 		<table class="center2" border="1" style="border: 1px solid black; border-collapse: collapse; font-family:ctimes; font-size:15.937767px; margin=0px">
 			<thead>
 				<tr>
-					<th style="width:150px">Nama<br>Jabatan</th>
-					<th style="width:200px">Nama</th>
-					<th style="width:150px">Tanggal</th>
-					<th style="width:180px">Tanda<br>Tangan</th>
+					<th style="width-150px">Nama<br>Jabatan</th>
+					<th style="width-200px">Nama</th>
+					<th style="width-150px">Tanggal</th>
+					<th style="width-180px">Tanda<br>Tangan</th>
 				</tr>				
 			</thead>
 			<tbody>
 				<tr>
-					<td style="padding=2px">1. Kalab</td>
+					<td style="padding-2px">1. Kalab</td>
 					<td class="center">
 					<?php echo  $row['Kalab']; ?>
 					</td>
 					<td>
 					<?php echo  $day2." ".$month2." ".$explode1[0]; ?>
 					</td>
-					<td style="text-align: center;"><img src="a.jpg" width="90" height="60"></td>
+					<td style="center;"><img src="a.jpg" width="90" height="60"></td>
 				</tr>	
 				<tr>
-					<td style="padding=2px">2. Pembimbing</td>
-					<td class="center" style="padding=5px">
-					<?php echo  $row['Pembimbing']; ?>
-					</td>
-					<td class="center" style="padding=5px">
-					<?php echo  $day3." ".$month3." ".$explode2[0]; ?>
-					</td>
-					<td style="text-align: center;"><img src="a.jpg" width="90" height="60"></td>
-				</tr>
-				<tr>
-					<td style="padding=2px">3. Tim K3L/Fakultas</td>
+					<td style="padding-2px">2. Tim K3L/Fakultas</td>
 					<td class="center">
 					<?php echo  $row['Tim_Fakultas']; ?>
 					</td>
 					<td class="center" style="padding=5px">
 					<?php echo  $day4." ".$month4." ".$explode3[0]; ?>
 					</td>
-					<td style="text-align: center;"><img src="a.jpg" width="90" height="60"></td>
+					<td style="center"><img src="a.jpg" width="90" height="60"></td>
 				</tr>
 			</tbody>			
 		</table>	

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -6,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Login</title>
+        <title>Sign in</title>
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
         <style>
@@ -29,20 +30,37 @@
                                         <img src="https://sso.uns.ac.id/module.php/uns/img/logo-uns.png" alt="Logo Universitas Sebelas Maret">
                                     </div>
                                     <div class="card-body">
-                                        <h3 class="text-center font-weight">Please Login</h3>
+                                        <h3 class="text-center font-weight">Sign in</h3>
 									
-                                        <form method="POST" action="cek_login.php">
+                                        <form method="POST" action="input-register.php">
                                             <div class="form-group">
-                                                <label class="small mb-1" >NIM / NIP</label>
-                                                <input class="form-control py-4" name="nim" type="text" placeholder="NIM/NIP" />
+                                                <label class="small mb-1" >Nama Lengkap</label>
+                                                <input class="form-control py-4" name="nama" type="text" placeholder="Masukkan Nama Lengkap" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="small mb-1">NIM</label>
+                                                <input class="form-control py-4" name="nim" type="text" placeholder="Masukkan NIM" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="small mb-1">Email</label>
+                                                <input class="form-control py-4" name="email" type="text" placeholder="Masukkan Email" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="small mb-1">Alamat</label>
+                                                <input class="form-control py-4" name="alamat" type="text" placeholder="Masukkan Alamat" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="small mb-1">No. Telpon</label>
+                                                <input class="form-control py-4" name="notelp" type="text" placeholder="Masukkan No Telpon" />
                                             </div>
                                             <div class="form-group">
                                                 <label class="small mb-1">Password</label>
-                                                <input class="form-control py-4" name="password" type="password" placeholder="Password" />
+                                                <input class="form-control py-4" name="password" type="password" placeholder="Masukkan Password" />
                                             </div>
                                             <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="register.php">Sign in</a>
-                                                <button class="btn btn-primary" type="submit">Login</button>
+                                                <a class="small" href="login.php">Login</a>
+                                                <!-- <button class="btn btn-primary" type="submit" name="log">Sign in</button> -->
+                                                <input type="submit" name="signin" value="signin">
                                             </div>
                                         </form>
                                     </div>

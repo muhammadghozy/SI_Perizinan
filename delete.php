@@ -6,6 +6,6 @@ if(isset($_GET['id'])){
     $dewan1 = $db1->prepare($query);
     $dewan1->execute();
     $res1 = $dewan1->get_result();
-    echo "<script>window.location='validasiformuliradmin.php';</script>";
+    echo "<script>window.location='statuspengajuanadmin.php';</script>";
 }
 ?>

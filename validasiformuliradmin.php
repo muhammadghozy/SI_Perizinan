@@ -59,34 +59,19 @@ include_once'navbar.php';
     <title> Validasi Perizinan </title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
-<div style="margin-bottom: 20px;" class="d-flex justify-content-center">
-    <form class="form-inline" action="" method="post">
-        <div class="form-group">
-             <input type="text" name="pencarian" class="form-control" placeholder="Pencarian">
-        </div> 
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">
-            <i class="fa fa-search" aria-hidden="true">
-            </i>
-            </button>
-        </div>
-    </form>
-</div>
 <div class="container-fluid">
 		<table class="table table-hover">
 	    	<thead>
 	    		<tr>
 	    			<td>No</td>
-                    <td>Nama</td>
-                    <td>NIM</td>
+            <td>Nama</td>
+            <td>NIM</td>
 	    			<td>Laboratorium</td>
 	    			<td>Tanggal Mulai</td>
-                    <td>Tanggal Selesai</td>
-                    <td>Posisi</td>
-                    <td>Preview Perizinan</td>
-                    <td>Tindakan<br>Pembimbing</td>
-                    <td>Tindakan<br>Kalab</td>
-                    <td>Tindakan<br>Tim K3L/Fakultas</td>
+            <td>Tanggal Selesai</td>
+            <td>Preview Perizinan</td>
+            <td>Tindakan<br>Kalab</td>
+            <td>Tindakan<br>Tim K3L/Fakultas</td>
 	    		</tr>
 	    	</thead>
 	    	<tbody >
@@ -100,30 +85,7 @@ include_once'navbar.php';
                         $posisi = ($hal - 1) * $batas;
                     }
                     $no = 1;
-                    if($_SERVER['REQUEST_METHOD'] == "POST"){
-                        $pencarian = trim(mysqli_real_escape_string($db1, $_POST['pencarian']));
-                        if($pencarian != ''){
-                            $query = "SELECT * FROM tb_form_lab WHERE Nama_mahasiswa LIKE '%".$pencarian."%'";
-                            $queryjml = $query;
-                            $dewan1 = $db1->prepare($queryjml);
-                            $dewan1->execute();
-                            $res1 = $dewan1->get_result();
-                            echo "<div style=\"float:left;\">";
-                            $jml = $res1->num_rows;
-                            echo "Data hasil pencarian : <b>$jml</b>";
-                            echo "</div>";                 
-                        }else{
-                            $query = "SELECT * FROM tb_form_lab LIMIT $posisi, $batas";
-                            $queryjml = "SELECT * FROM tb_form_lab";
-                            $dewan1 = $db1->prepare($queryjml);
-                            $dewan1->execute();
-                            $res1 = $dewan1->get_result();
-                            $no = $posisi + 1;
-                            $jml = $res1->num_rows;
-                            echo "Jumlah data : <b>$jml</b>";
-                        }
-                    }else{
-                        $query = "SELECT * FROM tb_form_lab LIMIT $posisi, $batas";
+                        $query = "SELECT * FROM tb_form_lab ORDER BY id DESC LIMIT $posisi, $batas";
                         $queryjml = "SELECT * FROM tb_form_lab";
                         $dewan1 = $db1->prepare($queryjml);
                         $dewan1->execute();
@@ -131,23 +93,20 @@ include_once'navbar.php';
                         $no = $posisi + 1;
                         $jml = $res1->num_rows;
                         echo "Jumlah data : <b>$jml</b>";
-                    }
-			        $dewan1 = $db1->prepare($query);
-			        $dewan1->execute();
-			        $res1 = $dewan1->get_result();
-			        if ($res1->num_rows > 0) {
-				        while ($row = $res1->fetch_assoc()) {
+                        $dewan1 = $db1->prepare($query);
+                        $dewan1->execute();
+                        $res1 = $dewan1->get_result();
+                        if ($res1->num_rows > 0) {
+                          while ($row = $res1->fetch_assoc()) {
 				                    $Laboratorium = $row['Laboratorium'];
                             $nama = $row['Nama_mahasiswa'];
                             $NIM = $row['NIM'];
 				                    $tgl_mulai = $row['tgl_mulai'];
 				                    $tgl_selesai = $row['tgl_selesai'];
-				                    $Pembimbing = $row['Pembimbing'];
                             $Kalab = $row['Kalab'];
                             $fakultas = $row['Tim_Fakultas'];
-                            $acc1 = $row['acc_pembimbing'];
-                            $acc2 = $row['acc_kalab'];
-                            $acc3 = $row['acc_fakultas'];
+                            $acc1 = $row['acc_kalab'];
+                            $acc2 = $row['acc_fakultas'];
 							              echo "<tr>";
                             echo "<td>".$no++."</td>";
                             echo "<td>".$nama."</td>";
@@ -155,72 +114,50 @@ include_once'navbar.php';
                             echo "<td>".$Laboratorium."</td>";
                             echo "<td>".$tgl_mulai."</td>";
                             echo "<td>".$tgl_selesai."</td>";
-                                ?>
-								<td>
-                                Admin
-                                </td>
-								<td>
-								<a href="eksporpreview.php?id=<?=$row['Id']?>">
-									<button class="download">Preview</button>
-                                </a>
-								</td>
-                                <td>
-                                <?php
-                                if($acc1==0){
-                                    $posisi="acc_pembimbing";
-                                    ?>
-                                    <a href="prosesvalidasiadmin.php?id=<?=$row['Id']?>&posisi=<?=$posisi?>">
-                                        <button class="download">Setujui</button>
-                                    </a>
-                                <?php
-                                }else if($acc1==1){
-                                    $posisi="acc_pembimbing";
-                                    ?>
-                                    <a href="prosesvalidasiadmin.php?id=<?=$row['Id']?>&posisi=<?=$posisi?>">
-                                        <button class="download">Batalkan</button>
-                                    </a>
-                                <?php
-                                } 
-                                ?>
-                                </td>
-                                <td> 
-                                <?php   
-                                if($acc2==0){
-                                    $posisi="acc_kalab";
-                                    ?>
-                                    <a href="prosesvalidasiadmin.php?id=<?=$row['Id']?>&posisi=<?=$posisi?>">
-                                        <button class="download">Setujui</button>
-                                    </a>
-                                <?php
-                                }else if($acc2==1){
-                                  $posisi="acc_kalab";
-                                  ?>
-                                  <a href="prosesvalidasiadmin.php?id=<?=$row['Id']?>&posisi=<?=$posisi?>">
-                                      <button class="download">Batalkan</button>
-                                  </a>
-                              <?php
-                              } 
-                              ?>
-                                </td>
-                                <td>    
-                                <?php   
-                                if($acc3==0){
-                                    $posisi="acc_fakultas";
-                                    ?>
-                                    <a href="prosesvalidasiadmin.php?id=<?=$row['Id']?>&posisi=<?=$posisi?>">
-                                        <button class="download">Setujui</button>
-                                    </a>
-                                <?php
-                                }else if($acc3==1){
-                                  $posisi="acc_fakultas";
-                                  ?>
-                                  <a href="prosesvalidasiadmin.php?id=<?=$row['Id']?>&posisi=<?=$posisi?>">
-                                      <button class="download">Batalkan</button>
-                                  </a>
-                              <?php
-                              }      
-                              ?>     
-                                 </td>
+            ?>
+            <td>
+            <a href="eksporpreview.php?id=<?=$row['Id']?>">
+              <button class="btn btn-primary">Preview</button>
+            </a>
+            </td>
+            <td> 
+            <?php   
+            if($acc1==0){
+                $posisi="acc_kalab";
+                ?>
+                <a href="prosesvalidasiadmin.php?id=<?=$row['Id']?>&posisi=<?=$posisi?>">
+                  <button class="btn btn-success">Setujui</button>
+                </a>
+            <?php
+            }else if($acc1==1){
+              $posisi="acc_kalab";
+              ?>
+              <a href="prosesvalidasiadmin.php?id=<?=$row['Id']?>&posisi=<?=$posisi?>">
+                <button class="btn btn-danger">Batalkan</button>
+              </a>
+            <?php
+            } 
+            ?>
+            </td>
+            <td>    
+            <?php   
+            if($acc2==0){
+                $posisi="acc_fakultas";
+                ?>
+                <a href="prosesvalidasiadmin.php?id=<?=$row['Id']?>&posisi=<?=$posisi?>">
+                  <button class="btn btn-success">Setujui</button>
+                </a>
+            <?php
+            }else if($acc2==1){
+              $posisi="acc_fakultas";
+              ?>
+              <a href="prosesvalidasiadmin.php?id=<?=$row['Id']?>&posisi=<?=$posisi?>">
+                <button class="btn btn-danger">Batalkan</button>
+              </a>
+            <?php
+            }      
+            ?>
+            </td>
 							<?php
 							echo "</tr>";
 			    	} } else { 
@@ -232,27 +169,22 @@ include_once'navbar.php';
 	    	</tbody>
 	    </table>
     </div>
-    <div style="float:left;">
-            <?php
-            $dewan1 = $db1->prepare($queryjml);
-            $dewan1->execute();
-            $res1 = $dewan1->get_result();
-            $jml = $res1->num_rows;               
-            ?>
-        </div>
-    <div style="float:right;">
-        <ul class="pagination pagination-sm" style="margin:0">
-            <?php
+    <div>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+        
+        <?php
             $jml_hal = ceil($jml / $batas);
             for($i=1; $i <= $jml_hal; $i++){
                 if($i != $hal){
-                    echo "<li><a href=\"?hal=$i\">$i</a></li>";
+                    echo "<li class=\"page-item\"><a class=\"page-link\" href=\"?hal=$i\">$i</a></li>";
                 }else{
-                    echo "<li class=\"active\"><a>$i</a></li>";
+                    echo "<li class=\"page-item active\"><a class=\"page-link\">$i</a></li>";
                 }
             }
             ?>
         </ul>
+      </nav>
     </div>
 	<br>
 	<br>

@@ -112,9 +112,9 @@
 						<td><?php echo $row['Pembimbing']; ?></td>
 					</tr>
 					<tr>
-						<td style="width:170px; line-height:1.5">Laboratorium/lokasi kerja (sebutkan lokasi kerja/ laboratorium lain yang akan dipakai)</td>
-						<td style="padding-bottom:74px">:</td>
-						<td style="padding-bottom:74px"><?php echo $row['Laboratorium']; ?></td>
+						<td>Laboratorium/lokasi kerja</td>
+						<td>:</td>
+						<td><?php echo $row['Laboratorium']; ?></td>
 					</tr>
 			</table>
 		<p class="justify" style="font-family:ctimes; font-size:15.937767px; margin:0px; margin-bottom:10.625178px">
@@ -346,15 +346,6 @@
 						</td>
 						<td style="text-align: center;"></td>
 					</tr>	
-					<tr>
-						<td style="padding=2px">2. Pembimbing</td>
-						<td class="center" style="padding=5px">
-						<?php echo  $row['Pembimbing']; ?>
-						</td>
-						<td class="center" style="padding=5px">
-						</td>
-						<td style="text-align: center;"></td>
-					</tr>
 					<tr>
 						<td style="padding=2px">3. Tim K3L/Fakultas</td>
 						<td class="center">
