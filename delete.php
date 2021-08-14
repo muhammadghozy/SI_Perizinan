@@ -8,4 +8,3 @@ if(isset($_GET['id'])){
     $res1 = $dewan1->get_result();
     echo "<script>window.location='statuspengajuanadmin.php';</script>";
 }
-?>

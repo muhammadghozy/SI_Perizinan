@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,22 +28,22 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-      <!-- Brand Logo -->
-      <a href="dashboard.php" class="brand-link">
-        <span class="brand-text font-weight-light">
-        PERIZINAN LAB<br>
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <!-- Brand Logo -->
+  <a href="dashboard.php" class="brand-link">
+    <span class="brand-text font-weight-light">
+      PERIZINAN LAB<br>
       FAKULTAS TEKNIK</span>
-      </a>
-      <!-- Sidebar -->
-      <div class="sidebar">
-        <!-- Sidebar user panel (optional) -->
-        <!-- Sidebar Menu -->
-      <?php 
-      if (isset($_SESSION['nama'])):
-    if ($_SESSION['level'] == "Mahasiswa"):
-      ?>
-      <nav class="mt-2">
+  </a>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Sidebar user panel (optional) -->
+    <!-- Sidebar Menu -->
+    <?php
+    if (isset($_SESSION['nama'])) :
+      if ($_SESSION['level'] == "Mahasiswa") :
+    ?>
+        <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
@@ -53,7 +54,7 @@
                   Dashboard
                 </p>
               </a>
-  
+
             <li class="nav-item has-treeview">
               <a href="perizinan.php" class="nav-link">
                 <i class="nav-icon fas fa-edit"></i>
@@ -61,13 +62,13 @@
                   Form Perizinan</p>
               </a>
             </li>
-  
+
             <li class="nav-item has-treeview">
               <a href="statuspengajuan.php" class="nav-link">
                 <i class="nav-icon fas fa-edit"></i>
-               <p>
+                <p>
                   Status Pengajuan
-               </p>
+                </p>
               </a>
             </li>
             <li class="nav-item has-treeview">
@@ -75,15 +76,15 @@
                 <p>
                   Logout</p>
               </a>
-            
+
             </li>
-           
+
           </ul>
         </nav>
-    <?php
-    elseif ($_SESSION['level'] == "kalab" || $_SESSION['level'] == "fakultas"):
+      <?php
+      elseif ($_SESSION['level'] == "kalab" || $_SESSION['level'] == "fakultas") :
       ?>
-      <nav class="mt-2">
+        <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
@@ -94,7 +95,7 @@
                   Dashboard
                 </p>
               </a>
-        
+
             </li>
             <li class="nav-item"></li>
             <li class="nav-item has-treeview">
@@ -143,7 +144,7 @@
                 </li>
               </ul>
             </li>
-            
+
             <li class="nav-item has-treeview">
               <a href="validasiformulir.php" class="nav-link">
                 <i class="nav-icon fas fa-edit"></i>
@@ -151,8 +152,8 @@
                   Validasi Perizinan</p>
               </a>
             </li>
-  
-           <li class="nav-item has-treeview">
+
+            <li class="nav-item has-treeview">
               <a href="logout.php" class="nav-link">
                 <p>
                   Logout</p>
@@ -160,10 +161,10 @@
             </li>
           </ul>
         </nav>
-    <?php
-    elseif ($_SESSION['level'] == "Admin"):
+      <?php
+      elseif ($_SESSION['level'] == "Admin") :
       ?>
-      <nav class="mt-2">
+        <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
@@ -174,7 +175,7 @@
                   Dashboard
                 </p>
               </a>
-        
+
             </li>
             <li class="nav-item"></li>
             <li class="nav-item has-treeview">
@@ -223,20 +224,20 @@
                 </li>
               </ul>
             </li>
-             <li class="nav-item has-treeview">
+            <li class="nav-item has-treeview">
               <a href="perizinan.php" class="nav-link">
                 <i class="nav-icon fas fa-edit"></i>
                 <p>
                   Form Perizinan</p>
               </a>
             </li>
-        
-       <li class="nav-item has-treeview">
+
+            <li class="nav-item has-treeview">
               <a href="statuspengajuan.php" class="nav-link">
                 <i class="nav-icon fas fa-edit"></i>
-               <p>
+                <p>
                   Status Pengajuan
-        </p>
+                </p>
               </a>
             </li>
             <li class="nav-item has-treeview">
@@ -246,8 +247,8 @@
                   Validasi Perizinan</p>
               </a>
             </li>
-  
-           <li class="nav-item has-treeview">
+
+            <li class="nav-item has-treeview">
               <a href="logout.php" class="nav-link">
                 <p>
                   Logout</p>
@@ -255,20 +256,20 @@
             </li>
           </ul>
         </nav>
+      <?php
+      endif;
+    else :
+      ?>
+      <li class="nav-item has-treeview">
+        <a href="login.php" class="nav-link">
+          <p>
+            Login</p>
+        </a>
+      </li>
     <?php
     endif;
-  else:
     ?>
-  <li class="nav-item has-treeview">
-  <a href="login.php" class="nav-link">
-    <p>
-      Login</p>
-  </a>
-</li>
-    <?php
-  endif;
-      ?>
-        <!-- /.sidebar-menu -->
-      </div>
-      <!-- /.sidebar -->
-  </aside>
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+</aside>

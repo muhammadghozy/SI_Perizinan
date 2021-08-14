@@ -21,10 +21,10 @@ if ($user_valid) {
     if ($password == $user_valid['password']) {
         //jika password sesuai
         //buat session
-        
+
         session_start();
         $_SESSION['id'] = $user_valid['id'];
-		$_SESSION['nama'] = $user_valid['nama'];
+        $_SESSION['nama'] = $user_valid['nama'];
         $_SESSION['password'] = $_POST['password'];
         $_SESSION['nim'] = $user_valid['nim'];
         $_SESSION['email'] = $user_valid['email'];
@@ -32,18 +32,17 @@ if ($user_valid) {
 
         //uji level user
         if ($user_valid['level'] == "Mahasiswa") {
-        echo "<script>document.location='dashboard.php'</script>";
+            echo "<script>document.location='dashboard.php'</script>";
         } elseif ($user_valid['level'] == "kalab") {
-        echo "<script>document.location='dashboard.php'</script>";
+            echo "<script>document.location='dashboard.php'</script>";
         } elseif ($user_valid['level'] == "Admin") {
-		echo "<script>document.location='dashboard.php'</script>";
-        }elseif ($user_valid['level'] == "fakultas") {
-		echo "<script>document.location='dashboard.php'</script>";
+            echo "<script>document.location='dashboard.php'</script>";
+        } elseif ($user_valid['level'] == "fakultas") {
+            echo "<script>document.location='dashboard.php'</script>";
+        } else {
+            echo "<script>alert('Maaf, Login Gagal, Password anda tidak sesuai!');document.location='login.php'</script>";
+        }
     } else {
-        echo "<script>alert('Maaf, Login Gagal, Password anda tidak sesuai!');document.location='login.php'</script>";
+        echo "<script>alert('Maaf, Login Gagal, Username anda tidak terdaftar!');document.location='login.php'</script>";
     }
-} else {
-    echo "<script>alert('Maaf, Login Gagal, Username anda tidak terdaftar!');document.location='login.php'</script>";
-}
-
 }

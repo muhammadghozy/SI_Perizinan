@@ -12,5 +12,5 @@ if(isset($POST['submit'])){
     if ($result){
         echo "<script type='text/javascript'>alert('Password Telah Berhasil Diganti');window.location='profile.php'</script>";
     }
-echo"luar";
+echo "luar";
 ?>

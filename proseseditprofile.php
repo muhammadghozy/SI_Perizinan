@@ -16,4 +16,3 @@ include "koneksi.php";
     }
 // }
 echo"luar";
-?>

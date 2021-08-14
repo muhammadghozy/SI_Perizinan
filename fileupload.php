@@ -45,4 +45,3 @@ if (isset($_POST['submit']))
 	}
 }
 echo "<script>document.location='profile.php'</script>";
-?>

@@ -40,9 +40,9 @@ include_once 'navbar.php';
 				<div class="container-fluid">
 					<div class="row mb-2">
 						<div class="col-sm-6">
-							<?php if (isset($_SESSION['nama'])):?>
-							<h1 class="m-1 text-dark"> <?= $_SESSION['nama'] ?> </h1>
-							<h1 class="m-1 text-dark"> <?= $_SESSION['nim'] ?> </h1>
+							<?php if (isset($_SESSION['nama'])) : ?>
+								<h1 class="m-1 text-dark"> <?= $_SESSION['nama'] ?> </h1>
+								<h1 class="m-1 text-dark"> <?= $_SESSION['nim'] ?> </h1>
 							<?php endif; ?>
 						</div><!-- /.col -->
 						<div class="col-sm-6">
