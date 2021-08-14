@@ -134,14 +134,14 @@ include_once 'navbar.php';
                       if ($acc2 == 0) :
                         $posisi = "acc_kalab";
                       ?>
-                        <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>">
+                        <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>&nama=<?= $Kalab ?>">
                           <button class="download">Setujui</button>
                         </a>
                       <?php
                       elseif ($acc2 == 1) :
                         $posisi = "acc_kalab";
                       ?>
-                        <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>">
+                        <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>&nama=<?= $Kalab ?>">
                           <button class="download">Batalkan</button>
                         </a>
                       <?php
@@ -207,14 +207,14 @@ include_once 'navbar.php';
                       if ($acc3 == 0) :
                         $posisi = "acc_fakultas";
                       ?>
-                        <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>">
+                        <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>&nama=<?= $fakultas ?>">
                           <button class="download">Setujui</button>
                         </a>
                       <?php
                       elseif ($acc3 == 1) :
                         $posisi = "acc_fakultas";
                       ?>
-                        <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>">
+                        <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>&nama=<?= $fakultas ?>">
                           <button class="download">Batalkan</button>
                         </a>
                       <?php
