@@ -7,4 +7,4 @@ unset($_SESSION['nama']);
 unset($_SESSION['level']);
 
 session_destroy();
-echo "<script>document.location='index.php'</script>";
+echo "<script>document.location='dashboard.php'</script>";
