@@ -62,19 +62,6 @@ include_once 'navbar.php';
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <div>
-<div style="margin-bottom: 20px;" class="d-flex justify-content-center">
-    <form class="form-inline" action="" method="post">
-        <div class="form-group">
-             <input type="text" name="pencarian" class="form-control" placeholder="Pencarian">
-        </div> 
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">
-            <i class="fa fa-search" aria-hidden="true">
-            </i>
-            </button>
-        </div>
-    </form>
-</div>
 <div class="container-fluid">
 		<table class="table table-hover">
 	    	<thead>
@@ -154,16 +141,16 @@ include_once 'navbar.php';
 								?> 
                 <td>
 								<?php if($acc1==1):?>
-                                    <i class="fa-2x fas fa-check"></i>
-                                <?php else:?>
-                                    <i class= "fa-2x fas fa-times"></i>
-                                <?php endif;?>
-                                <br>
-                                <?php if($acc2==1):?>
-                                    <i class="fa-2x fas fa-check"></i>
-                                <?php else:?>
-                                    <i class="fa-2x fas fa-times"></i>                    
-                                <?php endif?>
+                    <i class="fa-2x fas fa-check"></i>
+                <?php else:?>
+                    <i class= "fa-2x fas fa-times"></i>
+                <?php endif;?>
+                <br>
+                <?php if($acc2==1):?>
+                    <i class="fa-2x fas fa-check"></i>
+                <?php else:?>
+                    <i class="fa-2x fas fa-times"></i>                    
+                <?php endif?>
 								</td>
 								<td>
 								<a href="eksporpreview.php?id=<?=$row['Id']?>">

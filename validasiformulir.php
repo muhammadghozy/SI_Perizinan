@@ -59,19 +59,6 @@ include_once'navbar.php';
     <title> Validasi Perizinan </title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
-<div style="margin-bottom: 20px;" class="d-flex justify-content-center">
-    <form class="form-inline" action="" method="post">
-        <div class="form-group">
-             <input type="text" name="pencarian" class="form-control" placeholder="Pencarian">
-        </div> 
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">
-            <i class="fa fa-search" aria-hidden="true">
-            </i>
-            </button>
-        </div>
-    </form>
-</div>
 <div class="container-fluid">
 		<table class="table table-hover">
 	    	<thead>
