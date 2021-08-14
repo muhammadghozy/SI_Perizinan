@@ -79,101 +79,164 @@ include_once 'navbar.php';
           </thead>
           <tbody>
             <?php
-            $batas = 5;
-            $hal = @$_GET['hal'];
-            if (empty($hal)) {
-              $posisi = 0;
-              $hal = 1;
-            } else {
-              $posisi = ($hal - 1) * $batas;
-            }
-            $no = 1;
-            $query = "SELECT * FROM tb_form_lab WHERE Pembimbing='" . $_SESSION['nama'] . "' OR Kalab='" . $_SESSION['nama'] . "' OR Tim_Fakultas='" . $_SESSION['nama'] . "' ORDER BY id DESC LIMIT $posisi, $batas";
-            $queryjml = "SELECT * FROM tb_form_lab WHERE Pembimbing='" . $_SESSION['nama'] . "' OR Kalab='" . $_SESSION['nama'] . "' OR Tim_Fakultas='" . $_SESSION['nama'] . "'";
-            $dewan1 = $db1->prepare($queryjml);
-            $dewan1->execute();
-            $res1 = $dewan1->get_result();
-            $no = $posisi + 1;
-            $jml = $res1->num_rows;
-            echo "Jumlah data : <b>$jml</b>";
-            $dewan1 = $db1->prepare($query);
-            $dewan1->execute();
-            $res1 = $dewan1->get_result();
-            if ($res1->num_rows > 0) {
-              while ($row = $res1->fetch_assoc()) {
-                $Laboratorium = $row['Laboratorium'];
-                $nama = $row['Nama_mahasiswa'];
-                $NIM = $row['NIM'];
-                $tgl_mulai = $row['tgl_mulai'];
-                $tgl_selesai = $row['tgl_selesai'];
-                $Pembimbing = $row['Pembimbing'];
-                if ($_SESSION['level'] == 'kalab') {
-                  $query2 = "SELECT kalab FROM lab_kalab WHERE lab = '$Laboratorium'";
-                  $dd = $koneksi->query($query2);
-                  while ($row2 = $dd->fetch_assoc()) {
-                    $Kalab = $row2['kalab'];
-                  }
-                } elseif ($_SESSION['level'] == 'fakultas') {
-                  $fakultas = $_SESSION['nama'];
-                }
-                $acc1 = $row['acc_pembimbing'];
-                $acc2 = $row['acc_kalab'];
-                $acc3 = $row['acc_fakultas'];
-                echo "<tr>";
-                echo "<td>" . $no++ . "</td>";
-                echo "<td>" . $nama . "</td>";
-                echo "<td>" . $NIM . "</td>";
-                echo "<td>" . $Laboratorium . "</td>";
-                echo "<td>" . $tgl_mulai . "</td>";
-                echo "<td>" . $tgl_selesai . "</td>";
-            ?>
-                <td>
-                  <a href="eksporpreview.php?id=<?= $row['Id'] ?>">
-                    <button class="btn btn-primary">Preview</button>
-                  </a>
-                </td>
-                <td>
-                  <?php
-                  if (($_SESSION['level'] == 'kalab') && $acc2 == 0) :
-                    $posisi = "acc_kalab";
-                  ?>
-                    <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>">
-                      <button class="download">Setujui</button>
-                    </a>
-                  <?php
-                  elseif (($_SESSION['level'] == 'kalab') && $acc2 == 1) :
-                    $posisi = "acc_kalab";
-                  ?>
-                    <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>">
-                      <button class="download">Batalkan</button>
-                    </a>
-                  <?php
-                  endif;
-                  if (($_SESSION['level'] == 'fakultas') && $acc3 == 0) :
-                    $posisi = "acc_fakultas";
-                  ?>
-                    <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>">
-                      <button class="download">Setujui</button>
-                    </a>
-                  <?php
-                  elseif (($_SESSION['level'] == 'fakultas') && $acc3 == 1) :
-                    $posisi = "acc_fakultas";
-                  ?>
-                    <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>">
-                      <button class="download">Batalkan</button>
-                    </a>
-                  <?php
-                  endif;
-                  ?>
-                </td>
-            <?php
-                echo "</tr>";
+            if ($_SESSION['level'] == 'kalab') :
+              $namaKalab = $_SESSION['nama'];
+              $query2 = "SELECT lab FROM lab_kalab WHERE kalab = '$namaKalab'";
+              $dd = $koneksi->query($query2);
+              while ($row2 = $dd->fetch_assoc()) :
+                $Laboratorium = $row2['lab'];
+              endwhile;
+              $batas = 5;
+              $hal = @$_GET['hal'];
+              if (empty($hal)) {
+                $posisi = 0;
+                $hal = 1;
+              } else {
+                $posisi = ($hal - 1) * $batas;
               }
-            } else {
-              echo "<tr>";
-              echo "<td colspan='10'>Tidak ada data ditemukan</td>";
-              echo "</tr>";
-            }
+              $no = 1;
+              $query = "SELECT * FROM tb_form_lab  WHERE Laboratorium = '$Laboratorium' ORDER BY id DESC LIMIT $posisi, $batas";
+              $queryjml = "SELECT * FROM tb_form_lab WHERE Laboratorium = '$Laboratorium'";
+              $dewan1 = $db1->prepare($queryjml);
+              $dewan1->execute();
+              $res1 = $dewan1->get_result();
+              $no = $posisi + 1;
+              $jml = $res1->num_rows;
+              echo "Jumlah data : <b>$jml</b>";
+              $dewan1 = $db1->prepare($query);
+              $dewan1->execute();
+              $res1 = $dewan1->get_result();
+              if ($res1->num_rows > 0) :
+                while ($row = $res1->fetch_assoc()) :
+                  $nama = $row['Nama_mahasiswa'];
+                  $NIM = $row['NIM'];
+                  $tgl_mulai = $row['tgl_mulai'];
+                  $tgl_selesai = $row['tgl_selesai'];
+                  $Kalab = $namaKalab;
+                  $acc1 = $row['acc_pembimbing'];
+                  $acc2 = $row['acc_kalab'];
+                  $acc3 = $row['acc_fakultas'];
+            ?>
+                  <tr>
+                    <td><?= $no++ ?></td>
+                    <td><?= $nama ?></td>
+                    <td><?= $nim ?></td>
+                    <td><?= $Laboratorium ?></td>
+                    <td><?= $tgl_mulai ?></td>
+                    <td><?= $tgl_selesai ?></td>
+                    <td>
+                      <a href="eksporpreview.php?id=<?= $row['Id'] ?>">
+                        <button class="btn btn-primary">Preview</button>
+                      </a>
+                    </td>
+                    <td>
+                      <?php
+                      if ($acc2 == 0) :
+                        $posisi = "acc_kalab";
+                      ?>
+                        <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>">
+                          <button class="download">Setujui</button>
+                        </a>
+                      <?php
+                      elseif ($acc2 == 1) :
+                        $posisi = "acc_kalab";
+                      ?>
+                        <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>">
+                          <button class="download">Batalkan</button>
+                        </a>
+                      <?php
+                      endif;
+                      ?>
+                    </td>
+                  </tr>
+                <?php
+                endwhile;
+              else : ?>
+                <tr>
+                  <td colspan='10'>"Tidak ada data ditemukan"</td>
+                </tr>
+                <?php
+              endif;
+            elseif ($_SESSION['level'] == 'fakultas') :
+              $batas = 5;
+              $hal = @$_GET['hal'];
+              if (empty($hal)) {
+                $posisi = 0;
+                $hal = 1;
+              } else {
+                $posisi = ($hal - 1) * $batas;
+              }
+              $no = 1;
+              $query = "SELECT * FROM tb_form_lab  ORDER BY id DESC LIMIT $posisi, $batas";
+              $queryjml = "SELECT * FROM tb_form_lab ";
+              $dewan1 = $db1->prepare($queryjml);
+              $dewan1->execute();
+              $res1 = $dewan1->get_result();
+              $no = $posisi + 1;
+              $jml = $res1->num_rows;
+              echo "Jumlah data : <b>$jml</b>";
+              $dewan1 = $db1->prepare($query);
+              $dewan1->execute();
+              $res1 = $dewan1->get_result();
+              if ($res1->num_rows > 0) :
+                while ($row = $res1->fetch_assoc()) :
+                  $Laboratorium = $row['Laboratorium'];
+                  $nama = $row['Nama_mahasiswa'];
+                  $NIM = $row['NIM'];
+                  $tgl_mulai = $row['tgl_mulai'];
+                  $tgl_selesai = $row['tgl_selesai'];
+                  $fakultas = $_SESSION['nama'];
+                  $acc1 = $row['acc_pembimbing'];
+                  $acc2 = $row['acc_kalab'];
+                  $acc3 = $row['acc_fakultas'];
+                ?>
+                  <tr>
+                    <td><?= $no++ ?></td>
+                    <td><?= $nama ?></td>
+                    <td><?= $nim ?></td>
+                    <td><?= $Laboratorium ?></td>
+                    <td><?= $tgl_mulai ?></td>
+                    <td><?= $tgl_selesai ?></td>
+                    <td>
+                      <a href="eksporpreview.php?id=<?= $row['Id'] ?>">
+                        <button class="btn btn-primary">Preview</button>
+                      </a>
+                    </td>
+                    <td>
+                      <?php
+                      if ($acc3 == 0) :
+                        $posisi = "acc_fakultas";
+                      ?>
+                        <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>">
+                          <button class="download">Setujui</button>
+                        </a>
+                      <?php
+                      elseif ($acc3 == 1) :
+                        $posisi = "acc_fakultas";
+                      ?>
+                        <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>">
+                          <button class="download">Batalkan</button>
+                        </a>
+                      <?php
+                      endif;
+                      ?>
+                    </td>
+                  </tr>
+                <?php
+                endwhile;
+              else : ?>
+                <tr>
+                  <td colspan='10'>"Tidak ada data ditemukan"</td>
+                </tr>
+              <?php
+              endif;
+            else :
+              ?>
+              <script>
+                document.location = 'login.php'
+              </script>
+            <?php
+            endif;
             ?>
           </tbody>
         </table>
