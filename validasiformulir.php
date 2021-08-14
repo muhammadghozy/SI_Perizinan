@@ -120,7 +120,7 @@ include_once 'navbar.php';
                   <tr>
                     <td><?= $no++ ?></td>
                     <td><?= $nama ?></td>
-                    <td><?= $nim ?></td>
+                    <td><?= $NIM ?></td>
                     <td><?= $Laboratorium ?></td>
                     <td><?= $tgl_mulai ?></td>
                     <td><?= $tgl_selesai ?></td>
