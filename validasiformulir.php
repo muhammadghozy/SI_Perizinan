@@ -135,14 +135,14 @@ include_once 'navbar.php';
                         $posisi = "acc_kalab";
                       ?>
                         <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>&nama=<?= $Kalab ?>">
-                          <button class="download">Setujui</button>
+                          <button type="button" class="btn btn-success">Setujui</button>
                         </a>
                       <?php
                       elseif ($acc2 == 1) :
                         $posisi = "acc_kalab";
                       ?>
                         <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>&nama=<?= $Kalab ?>">
-                          <button class="download">Batalkan</button>
+                          <button type="button" class="btn btn-danger">Batalkan</button>
                         </a>
                       <?php
                       endif;
@@ -208,14 +208,14 @@ include_once 'navbar.php';
                         $posisi = "acc_fakultas";
                       ?>
                         <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>&nama=<?= $fakultas ?>">
-                          <button class="download">Setujui</button>
+                          <button type="button" class="btn btn-success">Setuju</button>
                         </a>
                       <?php
                       elseif ($acc3 == 1) :
                         $posisi = "acc_fakultas";
                       ?>
                         <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>&nama=<?= $fakultas ?>">
-                          <button class="download">Batalkan</button>
+                          <button type="button" class="btn btn-danger">Batalkan</button>
                         </a>
                       <?php
                       endif;

@@ -21,41 +21,29 @@ if (isset($_GET['id']) && isset($_GET['posisi'])) {
         $tgl_acc = "tgl_acc_kalab";
     }
     if ($posisi == "acc_fakultas") {
-        $tempat = "Tim Fakultas";
+        $tempat = "Tim_Fakultas";
         $tgl_acc = "tgl_acc_fakultas";
     }
     if ($row[$posisi] == 0) {
-        $query = "UPDATE tb_form_lab SET $tempat = '${nama}' WHERE ID='$id'";
+        $query = "UPDATE tb_form_lab SET $tempat = '$nama' WHERE ID='$id'";
         $result2 = mysqli_query($db1, $query);
-        if ($result2) {
-            echo "posisi updated successfully";
-        } else {
-            echo "Error updating record: " . $db1->error;
-        }
         $update = "UPDATE tb_form_lab SET $posisi = 1, $tgl_acc ='$today' WHERE Id=$id";
         $result = mysqli_query($db1, $update);
         if ($result) {
-            echo "Record updated successfully";
             echo "<script>window.location='validasiformulir.php';</script>";
         } else {
-            echo "Error updating record: " . $db1->error;
+            echo "<script>alert('Gagal melakukan validasi')</script>";
         }
     }
     if ($row[$posisi] == 1) {
-        $query = "UPDATE tb_form_lab SET $tempat = '${nama}' WHERE ID='$id'";
+        $query = "UPDATE tb_form_lab SET $tempat = '$nama' WHERE ID='$id'";
         $result2 = mysqli_query($db1, $query);
-        if ($result2) {
-            echo "posisi updated successfully";
-        } else {
-            echo "Error updating record: " . $db1->error;
-        }
         $update = "UPDATE tb_form_lab SET $posisi = 0, $tgl_acc = 0000-00-00 WHERE Id=$id";
         $result = mysqli_query($db1, $update);
         if ($result) {
-            echo "Record updated successfully";
             echo "<script>window.location='validasiformulir.php';</script>";
         } else {
-            echo "Error updating record: " . $db1->error;
+            echo "<script>alert('Gagal melakukan validasi')</script>";
         }
     }
 }
