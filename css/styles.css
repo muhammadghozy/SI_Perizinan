@@ -3892,9 +3892,11 @@ input[type=button].btn-block {
   display: block;
   padding: 0.5rem 1rem;
 }
+
 .nav-link:hover, .nav-link:focus {
   text-decoration: none;
 }
+
 .nav-link.disabled {
   color: #6c757d;
   pointer-events: none;
@@ -10024,6 +10026,7 @@ body {
 #layoutSidenav {
   display: flex;
 }
+
 #layoutSidenav #layoutSidenav_nav {
   flex-basis: 225px;
   flex-shrink: 0;
@@ -10031,6 +10034,7 @@ body {
   z-index: 1038;
   transform: translateX(-225px);
 }
+
 #layoutSidenav #layoutSidenav_content {
   position: relative;
   display: flex;

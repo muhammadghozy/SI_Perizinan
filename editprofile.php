@@ -62,6 +62,14 @@ include_once 'navbar.php';
                 <label>NIM/NIP</label>
                 <input type="text" name="NIM" class="form-control" placeholder="Masukkan NIM/NIP" required />
               </div>
+              <div class="form-group">
+                <label>Alamat</label>
+                <input type="text" name="Alamat" class="form-control" placeholder="Masukkan NIM/NIP" required />
+              </div>
+              <div class="form-group">
+                <label>No. Telpon</label>
+                <input type="text" name="no_telp" class="form-control" placeholder="Masukkan NIM/NIP" required />
+              </div>
               <button type="submit" class="btn btn-primary" name="submit">Update</button>
             </form>
           </div>

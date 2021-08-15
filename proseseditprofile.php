@@ -6,8 +6,10 @@ include "koneksi.php";
     $nama         = $_POST['Nama_mahasiswa'];
     $email        = $_POST['Email'];
     $NIM          = $_POST['NIM'];
+    $alamat       = $_POST['Alamat'];
+    $no_telp      = $_POST['no_telp'];
     
-    $simpan = "UPDATE tuser SET nama='$nama',nim='$NIM',email='$email' WHERE id='".$_SESSION['id']."'"; 
+    $simpan = "UPDATE tuser SET nama='$nama',nim='$NIM',email='$email',alamat='$alamat',no_telp='$no_telp' WHERE id='".$_SESSION['id']."'"; 
 
     $result = mysqli_query($db1,$simpan);
 

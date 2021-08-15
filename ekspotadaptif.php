@@ -49,7 +49,6 @@ ob_start();
 			line-height: 80px;
 			/* vert-center */
 		}
-		}
 	</style>
 </head>
 

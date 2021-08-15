@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $email           = $_POST['email'];
     $alamat          = $_POST['alamat'];
     $no_telp         = $_POST['notelp'];
-    $password        = $_POST['password'];
+    $password        = sha1($_POST['password']);
     $level           = 'Mahasiswa';
     $query = "SELECT nim FROM tuser WHERE nim = '$nim'";
     $result = $koneksi->query($query);

@@ -9,6 +9,10 @@ $_SESSION['nama'] = $user_valid['nama'];
 $_SESSION['nim'] = $user_valid['nim'];
 $_SESSION['email'] = $user_valid['email'];
 ?>
+<head>
+  <title> Profile </title>
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
@@ -40,17 +44,48 @@ $_SESSION['email'] = $user_valid['email'];
         <div class="container-fluid">
           <div class="d-block bg-white">
             <div class="col">
-              <h1 class="text-dark">Profile</h1>
+              <div class="form-group">
+                <h1 class="text-dark ">Profile</h1>
+                  <label>Nama Lengkap</label>
+                  <input type="text" name="Nama_mahasiswa" class="form-control" placeholder="Masukkan Nama Lengkap" value="<?php echo $_SESSION['nama']; ?>" readonly />
+                </div>
+                <div class="form-group">
+                  <label>Email</label>
+                  <input type="text" name="Email" class="form-control" placeholder="Masukkan Email Student" value="<?php if ($_SESSION['email'] == '') {
+                                                                                                                      echo 'Anda Belum Memasukkan Email';
+                                                                                                                    } else {
+                                                                                                                      echo $_SESSION['email'];
+                                                                                                                    } ?>" readonly>
+                </div>
+                <div class="form-group">
+                  <label>NIM/NIP</label>
+                  <input type="text" name="NIM" class="form-control" placeholder="Masukkan NIM" value="<?php echo $_SESSION['nim']; ?>" readonly />
+                </div>
+                <div class="form-group">
+                  <label>Alamat</label>
+                  <input type="text" name="alamat" class="form-control" placeholder="Alamat belum ditambahkan" value="<?php echo $_SESSION['alamat']; ?>" readonly />
+                </div>
+                <div class="form-group">
+                  <label>No. Telpon</label>
+                  <input type="text" name="no_telp" class="form-control" placeholder="No. Telpon belum ditambahkan" value="<?php echo $_SESSION['no_telp']; ?>" readonly />
+                </div>
+                <a href="editprofile.php">
+                  <button type="submit" class="btn btn-primary" name="submit">Edit</button>
+                </a>
+                <br>
+                <br>
+                <div class="form-group">
+                  <label>Password Anda</label>
+                  <input type="password" name="password" class="form-control" value="<?php echo $_SESSION['password']; ?>" readonly />
+                </div>
+                <a href="editpass.php">
+                  <button class="btn btn-primary">Edit</button>
+                </a>
             </div><!-- /.col -->
           </div>
         </div><!-- /.container-fluid -->
       </div>
       <!-- /.content-header -->
-
-      <head>
-        <title> Profile </title>
-        <link rel="stylesheet" type="text/css" href="css/styles.css">
-      </head>
 
       <script>
         var check = function() {
@@ -65,62 +100,7 @@ $_SESSION['email'] = $user_valid['email'];
         }
       </script>
 
-      <div class="container-fluid">
-        <div class="d-block bg-white">
-          <div class="col">
-            <div class="form-group">
-              <label>Nama Lengkap</label>
-              <input type="text" name="Nama_mahasiswa" class="form-control" placeholder="Masukkan Nama Lengkap" value="<?php echo $_SESSION['nama']; ?>" readonly />
-            </div>
-            <div class="form-group">
-              <label>Email</label>
-              <input type="text" name="Email" class="form-control" placeholder="Masukkan Email Student" value="<?php if ($_SESSION['email'] == '') {
-                                                                                                                  echo 'Anda Belum Memasukkan Email';
-                                                                                                                } else {
-                                                                                                                  echo $_SESSION['email'];
-                                                                                                                } ?>" readonly>
-            </div>
-            <div class="form-group">
-              <label>NIM/NIP</label>
-              <input type="text" name="NIM" class="form-control" placeholder="Masukkan NIM" value="<?php echo $_SESSION['nim']; ?>" readonly />
-            </div>
-            <a href="editprofile.php">
-              <button type="submit" class="btn btn-primary" name="submit">Edit</button>
-            </a>
-          </div>
-
-          <br>
-          <div class="d-block bg-white">
-            <div class="col">
-              <?php
-              if (file_exists("upload/ACC/" . $_SESSION['nama'] . ".jpg")) {
-              ?>
-                <img src="upload/ACC/<?php echo $_SESSION['nama']; ?>.jpg" width=240px height=240px>
-              <?php
-              } else {
-                echo "Belum Upload Tanda Tangan";
-              }
-              ?>
-              <br>
-              <a href="editttd.php">
-                <button class="btn btn-primary">Edit</button>
-              </a>
-            </div>
-          </div>
-
-        </div>
-        <br>
-        <div class="d-block bg-white">
-          <div class="col">
-            <div class="form-group">
-              <label>Password Anda</label>
-              <input type="password" name="password" class="form-control" value="<?php echo $_SESSION['password']; ?>" readonly />
-            </div>
-            <a href="editpass.php">
-              <button class="btn btn-primary">Edit</button>
-            </a>
-          </div>
-        </div>
+      
 
 
         <!-- jQuery -->

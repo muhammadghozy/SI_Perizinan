@@ -50,7 +50,6 @@ ob_start();
 			line-height: 80px;
 			/* vert-center */
 		}
-		}
 	</style>
 </head>
 
@@ -86,7 +85,7 @@ ob_start();
 	$day6 = date("j", strtotime($row['tgl_selesai']));
 	?>
 	<div>
-		<table border="0" style="font-family:ctimes; font-size:15.937767px; margin=0px">
+		<table (border="0") style="font-family:ctimes; font-size:15.937767px; margin=0px">
 			<tr>
 				<td>
 					<p style="font-family:ctimes; font-size:15.937767px; margin:0px; margin-bottom:10.625178px">Nama</p>
@@ -422,7 +421,7 @@ ob_start();
 					<td>
 						<?php echo  $day2 . " " . $month2 . " " . $explode1[0]; ?>
 					</td>
-					<td style="center;"><img src="a.jpg" width="90" height="60"></td>
+					<td style="center;"><img src="ACC.PNG" width="90" height="60"></td>
 				</tr>
 				<tr>
 					<td style="padding-2px">2. Tim K3L/Fakultas</td>
@@ -432,7 +431,7 @@ ob_start();
 					<td class="center" style="padding=5px">
 						<?php echo  $day4 . " " . $month4 . " " . $explode3[0]; ?>
 					</td>
-					<td style="center"><img src="a.jpg" width="90" height="60"></td>
+					<td style="center"><img src="ACC.PNG" width="90" height="60"></td>
 				</tr>
 			</tbody>
 		</table>

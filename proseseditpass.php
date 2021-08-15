@@ -2,7 +2,7 @@
 session_start();
 include "koneksi.php";
 
-if(isset($POST['submit'])){
+if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $pass   = sha1($_POST['Password_Baru']);
 
     $simpan = "UPDATE tuser SET password='$pass' WHERE id='".$_SESSION['id']."'"; 
@@ -12,5 +12,5 @@ if(isset($POST['submit'])){
     if ($result){
         echo "<script type='text/javascript'>alert('Password Telah Berhasil Diganti');window.location='profile.php'</script>";
     }
-echo "luar";
+echo "luar";}
 ?>
