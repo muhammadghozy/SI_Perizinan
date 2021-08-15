@@ -165,13 +165,13 @@ include_once 'navbar.php';
               $no = 1;
               $query = "SELECT * FROM tb_form_lab  ORDER BY id DESC LIMIT $posisi, $batas";
               $queryjml = "SELECT * FROM tb_form_lab ";
-              $dewan1 = $db1->prepare($queryjml);
+              $dewan1 = $koneksi->prepare($queryjml);
               $dewan1->execute();
               $res1 = $dewan1->get_result();
               $no = $posisi + 1;
               $jml = $res1->num_rows;
               echo "Jumlah data : <b>$jml</b>";
-              $dewan1 = $db1->prepare($query);
+              $dewan1 = $koneksi->prepare($query);
               $dewan1->execute();
               $res1 = $dewan1->get_result();
               if ($res1->num_rows > 0) :
