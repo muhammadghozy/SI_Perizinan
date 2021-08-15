@@ -60,8 +60,7 @@
                                         </div>
                                         <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
                                             <a class="small" href="login.php">Login</a>
-                                            <!-- <button class="btn btn-primary" type="submit" name="log">Sign in</button> -->
-                                            <input type="submit" name="signin" value="signin">
+                                            <button class="btn btn-primary" type="submit">Sign in</button>
                                         </div>
                                     </form>
                                 </div>
