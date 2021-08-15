@@ -3,7 +3,7 @@
 $nama = [];
 $level = [];
 session_start();
-$conn = mysqli_connect("localhost", "root", "", "si_perizinan");
+include 'koneksi.php';
 
 include_once 'navbar.php';
 
@@ -57,14 +57,15 @@ include_once 'navbar.php';
 			<div class="container mt-4 mb-4">
 				<div class="row">
 					<?php
-					$result  = mysqli_query($conn, "SELECT * FROM lab_kalab");
+					$result  = mysqli_query($koneksi, "SELECT * FROM lab_kalab");
 					while ($row = mysqli_fetch_assoc($result)) :    ?>
 						<div class="col-md-4 mt-4">
 							<div class="card border border-dark rounded">
 								<div class="card-body" style="min-height: 8.5rem;">
 									<h5 class="card-title"><?= $row["lab"]; ?></h5>
+									<?php $id = $row["id"]; ?>
 									</br></br>
-									<a href="#" class="card-link">Detail</a>
+									<a href="jadwalPenggunaan.php?lab=<?= $id ?>" class="card-link">Detail</a>
 								</div>
 							</div>
 						</div>
@@ -74,17 +75,17 @@ include_once 'navbar.php';
 
 			<!-- Footer -->
 			<footer class="site-footer bg-dark">
-				<div class="container-fluid">
+				<div class="container">
 					<div class="row">
-						<div class="col-md-3 mt-3">
-							<img src="https://spada.uns.ac.id/pluginfile.php/2/course/section/1/uns.png" style="width: 40%; padding-center: 2em;" alt="">
+						<div class="col-md-4 mt-4 mb-4">
+							<img src="https://spada.uns.ac.id/pluginfile.php/2/course/section/1/uns.png" style="width: 40%;" alt="">
 							<h3 class="footer-heading text-blue">Fakultas Teknik UNS</h3>
 							<p>Jl. Ir. Sutami No.36 A Surakarta 57126 <br>
 								Telp (+62)77358350233 <br>
 								Fax (+62)77358350233 <br>
 								Email : ft@ft-uns.com </p>
 						</div>
-						<div class="col-md-4 mt-3">
+						<div class="col-md-4 mt-4 mb-4">
 							<h3 class="footer-heading text-light">Program Studi</h3>
 							<a href="https://arsitektur.ft.uns.ac.id/" target='_blank'>Arsitektur</a> <br>
 							<a href="https://sipil.ft.uns.ac.id/?lang=id" target='_blank'>Teknik Sipil</a> <br>
@@ -94,8 +95,9 @@ include_once 'navbar.php';
 							<a href="https://elektro.ft.uns.ac.id/" target='_blank'>Teknik Elektro</a> <br>
 							<a href="https://pwk.ft.uns.ac.id/" target='_blank'>Perencanaan Wilayah dan Kota</a> <br>
 						</div>
-						<div class="col-md-3 mt-3">
-							<div class="col-md-11">
+
+						<div class="col-md-3">
+							<div class="col-md-12 mt-4 mb-4">
 								<h3 class="footer-heading text-light">Maps</h3>
 								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.120699070088!2d110.85154081477673!3d-7.5618169945466365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a16fdf072a90f%3A0xea50b255b0e6ce3e!2sFakultas%20Teknik%20Uns!5e0!3m2!1sen!2sid!4v1619534477026!5m2!1sen!2sid" style="max-width:300; max-height:200" allowfullscreen="" loading="lazy"></iframe>
 							</div>
@@ -104,25 +106,15 @@ include_once 'navbar.php';
 				</div><!-- /.container-fluid -->
 			</footer>
 		</div>
+		<!-- /.content-wrapper -->
+
+
+		<!-- Control Sidebar -->
+		<aside class="control-sidebar control-sidebar-dark">
+			<!-- Control sidebar content goes here -->
+		</aside>
+		<!-- /.control-sidebar -->
 	</div>
-	<!-- /.content-wrapper -->
-
-
-	<!-- Control Sidebar -->
-	<aside class="control-sidebar control-sidebar-dark">
-		<!-- Control sidebar content goes here -->
-	</aside>
-	<!-- /.control-sidebar -->
-	</div>
-	<!-- ./wrapper -->
-	<footer class="main-footer bg-dark">
-
-		SISTEM INFORMASI PERIZINAN
-		<div class="float-right d-none d-sm-inline-block">
-			<b>Version</b> 3.0.5
-		</div>
-	</footer>
-	<!-- jQuery -->
 	<script src="plugins/jquery/jquery.min.js"></script>
 	<!-- jQuery UI 1.11.4 -->
 	<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
@@ -130,32 +122,11 @@ include_once 'navbar.php';
 	<script>
 		$.widget.bridge('uibutton', $.ui.button)
 	</script>
-	<!-- Bootstrap 4 -->
+
 	<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<!-- ChartJS -->
-	<script src="plugins/chart.js/Chart.min.js"></script>
-	<!-- Sparkline -->
-	<script src="plugins/sparklines/sparkline.js"></script>
-	<!-- JQVMap -->
-	<script src="plugins/jqvmap/jquery.vmap.min.js"></script>
-	<script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-	<!-- jQuery Knob Chart -->
-	<script src="plugins/jquery-knob/jquery.knob.min.js"></script>
-	<!-- daterangepicker -->
-	<script src="plugins/moment/moment.min.js"></script>
-	<script src="plugins/daterangepicker/daterangepicker.js"></script>
-	<!-- Tempusdominus Bootstrap 4 -->
-	<script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-	<!-- Summernote -->
-	<script src="plugins/summernote/summernote-bs4.min.js"></script>
-	<!-- overlayScrollbars -->
-	<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 	<!-- AdminLTE App -->
 	<script src="dist/js/adminlte.js"></script>
-	<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-	<script src="dist/js/pages/dashboard.js"></script>
-	<!-- AdminLTE for demo purposes -->
-	<script src="dist/js/demo.js"></script>
+
 </body>
 
 </html>

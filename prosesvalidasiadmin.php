@@ -25,9 +25,9 @@ if (isset($_GET['id']) && isset($_GET['posisi'])) {
         $update = "UPDATE tb_form_lab SET $posisi = 1, $tgl_acc ='$today' WHERE Id=$id";
         $result = mysqli_query($db1, $update);
         if ($result) {
-            echo "<script>window.location='validasiformuliradmin.php';</script>";
+            echo "<script>window.location='validasiformulir.php';</script>";
         } else {
-            echo "Error updating record: " . $db1->error;
+            echo "<script>alert('Gagal melakukan validasi')</script>";
         }
     }
     if ($row[$posisi] == 1) {
@@ -36,7 +36,7 @@ if (isset($_GET['id']) && isset($_GET['posisi'])) {
         if ($result) {
             echo "<script>window.location='validasiformuliradmin.php';</script>";
         } else {
-            echo "Error updating record: " . $db1->error;
+            echo "<script>alert('Gagal melakukan validasi')</script>";
         }
     }
 }
