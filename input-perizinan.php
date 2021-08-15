@@ -1,8 +1,6 @@
 <?php
-
 include "koneksi.php";
-
-if(isset($_POST['submit'])){
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $nama            = $_POST['Nama_mahasiswa'];
     $NIM             = $_POST['NIM'];
     $alamat          = $_POST['Alamat'];
@@ -22,16 +20,14 @@ if(isset($_POST['submit'])){
     $tglmulai        = $_POST['tgl_mulai'];
     $tglselesai      = $_POST['tgl_selesai'];
     $wktmulai        = $_POST['wkt_mulai'];
-    $wktselesai      = $_POST['wkt_selesai'];  
-
-    $simpan = "INSERT INTO tb_form_lab VALUES('$nama','$NIM','$alamat','$notelp','$judulpenelitian','$pembimbing','$laboratorium','$syarat1','$syarat2','$syarat3','$syarat4','$syarat5','$syarat6','$syarat7','$syarat8','$syarat9','$tglmulai','$tglselesai','$wktmulai, '$wktselesai')";
-    
-    $result = mysqli_query($db1,$simpan)or die(mysqli_error($db1));
-
-    if ($result){
-        echo "<script type='text/javascript'>window.location='perizinan.php';alert('Data Telah Berhasil Disimpan');</script>";
+    $wktselesai      = $_POST['wkt_selesai'];
+    echo "imhere";
+    $query = "INSERT INTO tb_form_lab (Nama_mahasiswa, NIM, Alamat, Telp, Judul_Penelitian, Pembimbing, Laboratorium, Syrt_1, Syrt_2, Syrt_3, Syrt_4, Syrt_5, Syrt_6, Syrt_7, Syrt_8, Syrt_9, tgl_mulai, tgl_selesai, wkt_mulai, wkt_selesai) VALUES('$nama','$NIM','$alamat','$notelp','$judulpenelitian','$pembimbing','$laboratorium','$syarat1','$syarat2','$syarat3','$syarat4','$syarat5','$syarat6','$syarat7','$syarat8','$syarat9','$tglmulai','$tglselesai','$wktmulai', '$wktselesai')";
+    $result = mysqli_query($koneksi, $query);
+    if ($result) {
+        echo "<script>alert('Permintaan terkirim');</script>";
+    } else {
+        echo "<script>alert('Permintaan gagal dibuat');</script>";
+        var_dump($result);
     }
 }
-
-echo "luar";
-?>

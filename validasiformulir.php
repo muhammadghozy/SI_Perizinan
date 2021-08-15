@@ -301,7 +301,7 @@ include_once 'navbar.php';
           <div class="row">
 
             <div class="col-md-4">
-              <img src="https://spada.uns.ac.id/pluginfile.php/2/course/section/1/uns.png" style="width: 40%; padding-center: 2em;" alt="">
+              <img src="https://spada.uns.ac.id/pluginfile.php/2/course/section/1/uns.png" style="width: 40%; " alt="">
               <h3 class="footer-heading text-blue">Fakultas Teknik UNS</h3>
               <p>Jl. Ir. Sutami No.36 A Surakarta 57126 <br>
                 Telp (+62)77358350233 <br>
