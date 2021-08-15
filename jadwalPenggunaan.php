@@ -55,52 +55,52 @@ include_once 'navbar.php';
 					</div><!-- /.row -->
 				</div>
 			</div><!-- /.container-fluid -->
-			<div class="container mb-4 mt-4 p-3 border border-dark rounded shadow">
-                <?php
-                $query1 = "SELECT lab FROM lab_kalab WHERE id= '$id'";
-                $result = mysqli_query($koneksi, "SELECT * FROM lab_kalab WHERE id= '$id'");
-                while ($row = mysqli_fetch_assoc($result)) {
-                    $lab = $row["lab"];
-                }
-                ?>
-                <h2>Daftar Reservasi <?= $lab ?></h2>
-                <?php
-                $result  = mysqli_query($koneksi, "SELECT * FROM tb_form_lab WHERE lab = '$lab' AND CURRENT_DATE() < tgl_selesai");
-                $nomer = 1;
-                $jml = $result->num_rows;
-                ?>
-                <h6>Jumlah Reservasi <?= $jml ?></h6>
-                <table class="table ">
-                    <thead>
-                        <tr>
-                            <th scope="col">No</th>
-                            <th scope="col">Nama</th>
-                            <th scope="col">Tanggal</th>
-                            <th scope="col">Jam</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        while ($row = mysqli_fetch_assoc($result)) :
-                        ?>
-                            <tr>
-                                <th scope="row"><?= $nomer++ ?></th>
-                                <td><?= $row["Nama_mahasiswa"]; ?></td>
-                                <td><?php if ($row["tgl_mulai"] == $row["tgl_selesai"]) {
-                                        echo $row["tgl_mulai"];
-                                    } else {
-                                        echo $row["tgl_mulai"];
-                                        echo " sampai ";
-                                        echo $row["tgl_selesai"];
-                                    } ?>
-                                </td>
-                                <td><?= $row["jam_mulai"]; ?> - <?= $row["jam_selesai"]; ?></td>
-                            </tr>
-                        <?php
-                        endwhile; ?>
-                    </tbody>
-                </table>
-            </div>
+
+			<div class="container mt-4 mb-4 p-3 border border-dark rounded shadow">
+				<?php
+				$result1 = mysqli_query($koneksi, "SELECT * FROM lab_kalab WHERE id= '$id'");
+				while ($row = mysqli_fetch_assoc($result1)) {
+					$lab = $row["lab"];
+				}
+				?>
+				<h2>Daftar Reservasi <?= $lab ?></h2>
+				<?php
+				$result  = mysqli_query($koneksi, "SELECT * FROM tb_form_lab WHERE Laboratorium = '$lab' AND CURRENT_DATE() < tgl_selesai");
+				$nomer = 1;
+				$jml = $result->num_rows;
+				?>
+				<h6>Jumlah Reservasi <?= $jml ?></h2>
+					<table class="table ">
+						<thead>
+							<tr>
+								<th scope="col">No</th>
+								<th scope="col">Nama</th>
+								<th scope="col">Tanggal</th>
+								<th scope="col">Jam</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php
+							while ($row = mysqli_fetch_assoc($result)) :
+							?>
+								<tr>
+									<th scope="row"><?= $nomer++ ?></th>
+									<td><?= $row["Nama_mahasiswa"]; ?></td>
+									<td><?php if ($row["tgl_mulai"] == $row["tgl_selesai"]) {
+											echo $row["tgl_mulai"];
+										} else {
+											echo $row["tgl_mulai"];
+											echo " sampai ";
+											echo $row["tgl_selesai"];
+										} ?>
+									</td>
+									<td><?= $row["wkt_mulai"]; ?> - <?= $row["wkt_selesai"]; ?></td>
+								</tr>
+							<?php
+							endwhile; ?>
+						</tbody>
+					</table>
+			</div>
 
 			<!-- Footer -->
 			<footer class="site-footer bg-dark">

@@ -47,9 +47,8 @@ $id = $_GET['lab'];
             </div>
             <div class="container mb-4 mt-4 p-3 border border-dark rounded shadow">
                 <?php
-                $query1 = "SELECT lab FROM lab_kalab WHERE id= '$id'";
-                $result = mysqli_query($koneksi, "SELECT * FROM lab_kalab WHERE id= '$id'");
-                while ($row = mysqli_fetch_assoc($result)) {
+                $result1 = mysqli_query($koneksi, "SELECT * FROM lab_kalab WHERE id= '$id'");
+                while ($row = mysqli_fetch_assoc($result1)) {
                     $lab = $row["lab"];
                 }
                 ?>
