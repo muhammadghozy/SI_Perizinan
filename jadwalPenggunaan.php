@@ -65,7 +65,7 @@ include_once 'navbar.php';
 				?>
 				<h2>Daftar Reservasi <?= $lab ?></h2>
 				<?php
-				$result  = mysqli_query($koneksi, "SELECT * FROM tb_form_lab WHERE Laboratorium = '$lab' AND CURRENT_DATE() < tgl_selesai");
+				$result  = mysqli_query($koneksi, "SELECT * FROM tb_form_lab WHERE Laboratorium = '$lab' AND acc_fakultas = '1' AND acc_kalab = '1' AND CURRENT_DATE() < tgl_selesai");
 				$nomer = 1;
 				$jml = $result->num_rows;
 				?>
