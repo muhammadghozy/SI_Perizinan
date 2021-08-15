@@ -10,7 +10,7 @@ $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => [215.9, 355.6]]);
 
 //Menggabungkan dengan file koneksi yang telah kita buat
 include 'koneksi.php';
-$nama_dokumen = 'hasil-ekspor';
+$nama_dokumen = 'Formulir Peminjaman Lab';
 ob_start();
 ?>
 
@@ -300,16 +300,16 @@ ob_start();
 		</div>
 		<pagebreak />
 		<p class="justify" style="font-family:ctimes; font-size:15.937767px; margin-bottom:10.625178px">
-			Dengan ini mengajukan izin akses bekerja/melakukan kegiatan di laboratorium berikut (laboratorium bisa lebih dari 1)
+			Dengan ini mengajukan izin akses bekerja/melakukan kegiatan di laboratorium berikut :
 		</p>
 
 		<div>
-			<table border="1" style="border: 1px solid black; border-collapse: collapse; font-family:ctimes; font-size:15.937767px; margin=0px">
+			<table border="1" style="border: 1px solid black; border-collapse: collapse; font-family:ctimes; font-size:15.937767px;">
 				<thead>
 					<tr>
 						<th rowspan="2">No</th>
 						<th rowspan="2" style="width:60%">Laboratorium</th>
-						<th colspan="2">Perkiraan Akses(dibuat per minggu)</th>
+						<th colspan="2">Waktu Peminjaman</th>
 					</tr>
 					<tr>
 						<th>Tanggal mulai</th>
@@ -335,7 +335,11 @@ ob_start();
 		<p style="text-align: right; font-family:ctimes; font-size:15.937767px; margin-bottom:10.625178px">
 			Surakarta, <?php echo $day1 . " " . $month1 . " " . $explode[0]; ?>
 			<br>
-			<img src="upload/ACC/<?php echo $row['Nama_mahasiswa']; ?>.jpg" width="145" height="60">
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
 			<br>
 			(<?php echo $row['Nama_mahasiswa']; ?>)
 		</p>
@@ -353,7 +357,7 @@ ob_start();
 						<th style="width:150px">Nama<br>Jabatan</th>
 						<th style="width:200px">Nama</th>
 						<th style="width:150px">Tanggal</th>
-						<th style="width:180px">Tanda<br>Tangan</th>
+						<th style="width:180px">Disetujui/Tidak Disetujui</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -365,7 +369,7 @@ ob_start();
 						<td class="center" style="padding=5px">
 							<?php echo  $day2 . "-" . $explode1[1] . "-" . $explode1[0]; ?>
 						</td>
-						<td style="text-align: center;"><img src="upload/ACC/<?php echo $row['Kalab']; ?>.jpg" width="90" height="60"></td>
+						<td style="text-align: center;"><img src="images/ACC.PNG" width="100" height="50"></td>
 					</tr>
 					<tr>
 						<td style="padding=2px">2. Tim K3L/Fakultas</td>
@@ -375,7 +379,7 @@ ob_start();
 						<td class="center" style="padding=5px">
 							<?php echo  $day4 . "-" . $explode3[1] . "-" . $explode3[0]; ?>
 						</td>
-						<td style="text-align: center;"><img src="upload/ACC/<?php echo $row['Tim_Fakultas']; ?>.jpg" width="90" height="60"></td>
+						<td style="text-align: center;"><img src="images/ACC.PNG" width="100" height="50"></td>
 					</tr>
 				</tbody>
 			</table>

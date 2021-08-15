@@ -11,7 +11,7 @@ $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => [215.9, 355.6]]);
 //Menggabungkan dengan file koneksi yang telah kita buat
 include 'koneksi.php';
 
-$nama_dokumen = 'hasil-ekspor';
+$nama_dokumen = 'Formulir Peminjaman Lab';
 ob_start();
 ?>
 
@@ -304,7 +304,7 @@ ob_start();
 					<tr>
 						<th rowspan="2">No</th>
 						<th rowspan="2" style="width:60%">Laboratorium</th>
-						<th colspan="2">Perkiraan Akses(dibuat per minggu)</th>
+						<th colspan="2">Waktu Peminjaman</th>
 					</tr>
 					<tr>
 						<th>Tanggal mulai</th>
@@ -330,7 +330,11 @@ ob_start();
 		<p style="text-align: right; font-family:ctimes; font-size:15.937767px; margin-bottom:10.625178px">
 			Surakarta, <?php echo $day1 . " " . $month1 . " " . $explode[0]; ?>
 			<br>
-			<img src="upload/ACC/<?php echo $row['Nama_mahasiswa']; ?>.jpg" width="145" height="60">
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
 			<br>
 			(<?php echo $row['Nama_mahasiswa']; ?>)
 		</p>

@@ -26,6 +26,10 @@ include_once 'navbar.php';
     </nav>
     <!-- /.navbar -->
 
+    <head>
+        <title> Edit Profile </title>
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+      </head>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -35,22 +39,8 @@ include_once 'navbar.php';
           <div class="d-block bg-white">
             <div class="col">
               <h1 class="text-dark">Edit Profile</h1>
-            </div><!-- /.col -->
-          </div>
-        </div><!-- /.container-fluid -->
-      </div>
-      <!-- /.content-header -->
-
-      <head>
-        <title> Edit Profile </title>
-        <link rel="stylesheet" type="text/css" href="css/styles.css">
-      </head>
-
-      <div class="container-fluid">
-        <div class="d-block bg-white">
-          <div class="col">
-            <form action="proseseditprofile.php" method="POST">
-              <div class="form-group">
+              <form action="proseseditprofile.php" method="POST">
+              <div class="form-group mt-5">
                 <label>Nama Lengkap</label>
                 <input type="text" name="Nama_mahasiswa" class="form-control" placeholder="Masukkan Nama Lengkap" required />
               </div>
@@ -72,4 +62,7 @@ include_once 'navbar.php';
               </div>
               <button type="submit" class="btn btn-primary" name="submit">Update</button>
             </form>
+            </div><!-- /.col -->
           </div>
+        </div><!-- /.container-fluid -->
+      </div>

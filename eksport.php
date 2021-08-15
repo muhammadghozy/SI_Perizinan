@@ -11,13 +11,12 @@ $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => [215.9, 355.6]]);
 //Menggabungkan dengan file koneksi yang telah kita buat
 include 'koneksi.php';
 
-$nama_dokumen = 'hasil-ekspor';
+$nama_dokumen = 'Formulir Peminjaman Lab';
 ob_start();
 ?>
 
 <!DOCTYPE html>
 <html>
-
 <head>
 	<meta charset="utf-8">
 	<style>
@@ -295,7 +294,7 @@ ob_start();
 
 	<p class="justify" style="font-family:ctimes; font-size:15.937767px; margin-bottom:10.625178px">
 		<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-		Dengan ini mengajukan izin akses bekerja/melakukan kegiatan di laboratorium berikut (laboratorium bisa lebih dari 1)
+		Dengan ini mengajukan izin akses bekerja/melakukan kegiatan di laboratorium berikut :
 	</p>
 
 	<div>
@@ -304,9 +303,6 @@ ob_start();
 				<tr>
 					<th rowspan="2">No</th>
 					<th rowspan="2" style="width:60%">Laboratorium</th>
-					<th colspan="2">Perkiraan Akses(dibuat per minggu)</th>
-				</tr>
-				<tr>
 					<th>Tanggal mulai</th>
 					<th>Tanggal selesai</th>
 				</tr>

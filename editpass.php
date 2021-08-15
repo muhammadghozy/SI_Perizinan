@@ -25,26 +25,10 @@ include_once 'navbar.php';
     </nav>
     <!-- /.navbar -->
 
-
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
-      <div class="content-header">
-        <div class="container-fluid">
-          <div class="d-block bg-white">
-            <div class="col">
-              <h1 class="text-dark">Profile</h1>
-            </div><!-- /.col -->
-          </div>
-        </div><!-- /.container-fluid -->
-      </div>
-      <!-- /.content-header -->
-
-      <head>
+    <head>
         <title> Edit Password </title>
         <link rel="stylesheet" type="text/css" href="css/styles.css">
       </head>
-
 
       <script>
         var check = function() {
@@ -114,12 +98,17 @@ include_once 'navbar.php';
 
         }
       </script>
-      <span id='p'></span>
-      <div class="container-fluid">
-        <div class="d-block bg-white">
-          <div class="col">
-            <form action="proseseditpass.php" method="POST">
-              <div class="form-group">
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="d-block bg-white">
+            <div class="col">
+              <h1 class="text-dark">Edit Password</h1>
+              <form action="proseseditpass.php" method="POST">
+              <div class="form-group mt-5">
                 <label>Password Lama</label>
                 <input type="password" name="password" id="password" class="form-control" placeholder="Masukkan Password Lama" required />
               </div>
@@ -136,9 +125,8 @@ include_once 'navbar.php';
               </div>
               <button type="submit" class="btn btn-primary" name="submit">Update</button>
             </form>
+            </div><!-- /.col -->
           </div>
-        </div>
+        </div><!-- /.container-fluid -->
       </div>
-      <div class="container-fluid">
-
-      </div>
+    </div>

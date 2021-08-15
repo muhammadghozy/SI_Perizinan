@@ -8,6 +8,8 @@ $user_valid = mysqli_fetch_array($cek_user);
 $_SESSION['nama'] = $user_valid['nama'];
 $_SESSION['nim'] = $user_valid['nim'];
 $_SESSION['email'] = $user_valid['email'];
+$_SESSION['alamat'] = $user_valid['alamat'];
+$_SESSION['no_telp'] = $user_valid['no_telp'];
 ?>
 <head>
   <title> Profile </title>
@@ -44,8 +46,9 @@ $_SESSION['email'] = $user_valid['email'];
         <div class="container-fluid">
           <div class="d-block bg-white">
             <div class="col">
-              <div class="form-group">
-                <h1 class="text-dark ">Profile</h1>
+              <div class="form-group mt-3">
+                <h1 class="text-dark">Profile</h1>
+                <div class="form-group mt-3">
                   <label>Nama Lengkap</label>
                   <input type="text" name="Nama_mahasiswa" class="form-control" placeholder="Masukkan Nama Lengkap" value="<?php echo $_SESSION['nama']; ?>" readonly />
                 </div>
@@ -63,18 +66,26 @@ $_SESSION['email'] = $user_valid['email'];
                 </div>
                 <div class="form-group">
                   <label>Alamat</label>
-                  <input type="text" name="alamat" class="form-control" placeholder="Alamat belum ditambahkan" value="<?php echo $_SESSION['alamat']; ?>" readonly />
+                  <input type="text" name="alamat" class="form-control" placeholder="Masukkan Alamat" value="<?php if ($_SESSION['alamat'] == '') {
+                                                                                                                      echo 'Anda Belum Memasukkan Alamat';
+                                                                                                                    } else {
+                                                                                                                      echo $_SESSION['alamat'];
+                                                                                                                    } ?>" readonly />
                 </div>
                 <div class="form-group">
                   <label>No. Telpon</label>
-                  <input type="text" name="no_telp" class="form-control" placeholder="No. Telpon belum ditambahkan" value="<?php echo $_SESSION['no_telp']; ?>" readonly />
+                  <input type="text" name="no_telp" class="form-control" placeholder="Masukkan No. Telpon" value="<?php if ($_SESSION['no_telp'] == '') {
+                                                                                                                      echo 'Anda Belum Memasukkan No. Telpon';
+                                                                                                                    } else {
+                                                                                                                      echo $_SESSION['no_telp'];
+                                                                                                                    } ?>" readonly />
                 </div>
                 <a href="editprofile.php">
                   <button type="submit" class="btn btn-primary" name="submit">Edit</button>
                 </a>
                 <br>
                 <br>
-                <div class="form-group">
+                <div class="form-group mt-5">
                   <label>Password Anda</label>
                   <input type="password" name="password" class="form-control" value="<?php echo $_SESSION['password']; ?>" readonly />
                 </div>
