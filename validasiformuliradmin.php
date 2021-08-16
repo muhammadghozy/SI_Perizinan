@@ -162,6 +162,18 @@ include_once 'navbar.php';
                   }
                   ?>
                 </td>
+                <td class="text-center">
+                  <div class="mt-3">
+                    <a href="delete.php?id=<?= $row['Id'] ?>">
+                      <button class="btn btn-danger">
+                        <div style="font-size: 1rem;">
+                          <i class="fa fa-trash" aria-hidden="true">
+                          </i>
+                        </div>
+                      </button>
+                    </a>
+                  </div>
+                </td>
             <?php
                 echo "</tr>";
               }
