@@ -92,11 +92,11 @@ include_once 'navbar.php';
               }
               $no = 1;
               if ($_SERVER['REQUEST_METHOD'] == "POST") {
-                $pencarian = trim(mysqli_real_escape_string($db1, $_POST['pencarian']));
+                $pencarian = trim(mysqli_real_escape_string($koneksi, $_POST['pencarian']));
                 if ($pencarian != '') {
                   $query = "SELECT * FROM tb_form_lab WHERE Pembimbing LIKE '%" . $pencarian . "%' OR Tim_Fakultas LIKE '%" . $pencarian . "%' OR Kalab LIKE '%" . $pencarian . "%' HAVING Nama_mahasiswa='" . $_SESSION['nama'] . "' AND NIM='" . $_SESSION['nim'] . "'";
                   $queryjml = $query;
-                  $dewan1 = $db1->prepare($queryjml);
+                  $dewan1 = $koneksi->prepare($queryjml);
                   $dewan1->execute();
                   $res1 = $dewan1->get_result();
                   echo "<div style=\"float:left;\">";
@@ -106,7 +106,7 @@ include_once 'navbar.php';
                 } else {
                   $query = "SELECT * FROM tb_form_lab WHERE Nama_mahasiswa='" . $_SESSION['nama'] . "' AND NIM='" . $_SESSION['nim'] . "' ORDER BY id DESC LIMIT $posisi, $batas";
                   $queryjml = "SELECT * FROM tb_form_lab WHERE Nama_mahasiswa='" . $_SESSION['nama'] . "' AND NIM='" . $_SESSION['nim'] . "'";
-                  $dewan1 = $db1->prepare($queryjml);
+                  $dewan1 = $koneksi->prepare($queryjml);
                   $dewan1->execute();
                   $res1 = $dewan1->get_result();
                   $no = $posisi + 1;
@@ -116,14 +116,14 @@ include_once 'navbar.php';
               } else {
                 $query = "SELECT * FROM tb_form_lab WHERE Nama_mahasiswa='" . $_SESSION['nama'] . "' AND NIM='" . $_SESSION['nim'] . "' ORDER BY id DESC LIMIT $posisi, $batas";
                 $queryjml = "SELECT * FROM tb_form_lab WHERE Nama_mahasiswa='" . $_SESSION['nama'] . "' AND NIM='" . $_SESSION['nim'] . "'";
-                $dewan1 = $db1->prepare($queryjml);
+                $dewan1 = $koneksi->prepare($queryjml);
                 $dewan1->execute();
                 $res1 = $dewan1->get_result();
                 $no = $posisi + 1;
                 $jml = $res1->num_rows;
                 echo "Jumlah data : <b>$jml</b>";
               }
-              $dewan1 = $db1->prepare($query);
+              $dewan1 = $koneksi->prepare($query);
               $dewan1->execute();
               $res1 = $dewan1->get_result();
               if ($res1->num_rows > 0) {
@@ -179,7 +179,7 @@ include_once 'navbar.php';
                 }
               } else {
                 echo "<tr>";
-                echo "<td colspan='5'>Tidak ada data ditemukan</td>";
+                echo "<td colspan='8'>Tidak ada data ditemukan</td>";
                 echo "</tr>";
               }
               ?>

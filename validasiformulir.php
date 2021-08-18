@@ -62,7 +62,7 @@ include_once 'navbar.php';
       <div class="container-fluid">
         <table class="table table-hover">
           <?php
-          if ($_SESSION['level'] == 'admin') :
+          if ($_SESSION['level'] == 'Admin') :
           ?>
             <thead>
               <tr>
@@ -129,14 +129,14 @@ include_once 'navbar.php';
                     if ($acc1 == 0) {
                       $posisi = "acc_kalab";
                     ?>
-                      <a href="prosesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>&nama=<?= $_SESSION['nama'] ?>">
+                      <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>&nama=<?= $_SESSION['nama'] ?>">
                         <button class="btn btn-success">Setujui</button>
                       </a>
                     <?php
                     } else if ($acc1 == 1) {
                       $posisi = "acc_kalab";
                     ?>
-                      <a href="prosesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>&nama=<?= $_SESSION['nama'] ?>">
+                      <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>&nama=<?= $_SESSION['nama'] ?>">
                         <button class="btn btn-danger">Batalkan</button>
                       </a>
                     <?php
@@ -148,14 +148,14 @@ include_once 'navbar.php';
                     if ($acc2 == 0) {
                       $posisi = "acc_fakultas";
                     ?>
-                      <a href="prosesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>&nama=<?= $_SESSION['nama'] ?>">
+                      <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>&nama=<?= $_SESSION['nama'] ?>">
                         <button class="btn btn-success">Setujui</button>
                       </a>
                     <?php
                     } else if ($acc2 == 1) {
                       $posisi = "acc_fakultas";
                     ?>
-                      <a href="prosesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>&nama=<?= $_SESSION['nama'] ?>">
+                      <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>&nama=<?= $_SESSION['nama'] ?>">
                         <button class="btn btn-danger">Batalkan</button>
                       </a>
                     <?php
@@ -163,7 +163,7 @@ include_once 'navbar.php';
                     ?>
                   </td>
                   <td class="text-center">
-                    <div class="mt-3">
+                    <div>
                       <a href="delete.php?id=<?= $row['Id'] ?>">
                         <button class="btn btn-danger">
                           <div style="font-size: 1rem;">

@@ -5,8 +5,9 @@
 //$mpdf=new mPDF('utf-8', 'A4', 11, 'Georgia');
 
 //Jika download plugin mpdf dengan composer (versi baru)
-require_once __DIR__ . '/vendor/autoload.php';
-$mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => [215.9, 355.6]]);
+// require_once __DIR__ . '/vendor/autoload.php';
+include(_MPDF_PATH . "mpdf.php");
+$mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4']);
 
 //Menggabungkan dengan file koneksi yang telah kita buat
 include 'koneksi.php';

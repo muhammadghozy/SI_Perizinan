@@ -3,7 +3,7 @@ include 'koneksi.php';
 session_start();
 include_once 'navbar.php';
 
-$cek_user = mysqli_query($db1, "SELECT * FROM tuser WHERE nim = '" . $_SESSION['nim'] . "'");
+$cek_user = mysqli_query($koneksi, "SELECT * FROM tuser WHERE nim = '" . $_SESSION['nim'] . "'");
 $user_valid = mysqli_fetch_array($cek_user);
 $_SESSION['nama'] = $user_valid['nama'];
 $_SESSION['nim'] = $user_valid['nim'];

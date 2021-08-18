@@ -6,7 +6,7 @@
 
 //Jika download plugin mpdf dengan composer (versi baru)
 require_once __DIR__ . '/vendor/autoload.php';
-$mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => [215.9, 355.6]]);
+$mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4']);
 
 //Menggabungkan dengan file koneksi yang telah kita buat
 include 'koneksi.php';
@@ -73,7 +73,7 @@ ob_start();
 	if (isset($_GET['id'])) {
 		$id = $_GET['id'];
 		$query = "SELECT * FROM tb_form_lab WHERE Id='$id'";
-		$dewan1 = $db1->prepare($query);
+		$dewan1 = $koneksi->prepare($query);
 		$dewan1->execute();
 		$res1 = $dewan1->get_result();
 		$row = $res1->fetch_assoc();
@@ -396,5 +396,5 @@ ob_end_clean();
 
 $mpdf->WriteHTML(utf8_encode($html));
 $mpdf->Output("" . $nama_dokumen . ".pdf", 'D');
-$db1->close();
+$koneksi->close();
 ?>
