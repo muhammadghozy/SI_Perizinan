@@ -6,7 +6,7 @@
 
 //Jika download plugin mpdf dengan composer (versi baru)
 require_once __DIR__ . '/vendor/autoload.php';
-$mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4']);
+$mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4','tempDir' => sys_get_temp_dir().DIRECTORY_SEPARATOR.'mpdf']);
 
 //Menggabungkan dengan file koneksi yang telah kita buat
 include 'koneksi.php';
