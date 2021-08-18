@@ -148,14 +148,14 @@ include_once 'navbar.php';
                     if ($acc2 == 0) {
                       $posisi = "acc_fakultas";
                     ?>
-                      <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>&nama=<?= $_SESSION['nama'] ?>">
+                      <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>">
                         <button class="btn btn-success">Setujui</button>
                       </a>
                     <?php
                     } else if ($acc2 == 1) {
                       $posisi = "acc_fakultas";
                     ?>
-                      <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>&nama=<?= $_SESSION['nama'] ?>">
+                      <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>">
                         <button class="btn btn-danger">Batalkan</button>
                       </a>
                     <?php
@@ -255,14 +255,14 @@ include_once 'navbar.php';
                       if ($acc2 == 0) :
                         $posisi = "acc_kalab";
                       ?>
-                        <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>&nama=<?= $Kalab ?>">
+                        <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>">
                           <button type="button" class="btn btn-success">Setujui</button>
                         </a>
                       <?php
                       elseif ($acc2 == 1) :
                         $posisi = "acc_kalab";
                       ?>
-                        <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>&nama=<?= $Kalab ?>">
+                        <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>">
                           <button type="button" class="btn btn-danger">Batalkan</button>
                         </a>
                       <?php
@@ -345,14 +345,14 @@ include_once 'navbar.php';
                       if ($acc3 == 0) :
                         $posisi = "acc_fakultas";
                       ?>
-                        <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>&nama=<?= $fakultas ?>">
+                        <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>">
                           <button type="button" class="btn btn-success">Setuju</button>
                         </a>
                       <?php
                       elseif ($acc3 == 1) :
                         $posisi = "acc_fakultas";
                       ?>
-                        <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>&nama=<?= $fakultas ?>">
+                        <a href="ProsesValidasi.php?id=<?= $row['Id'] ?>&posisi=<?= $posisi ?>">
                           <button type="button" class="btn btn-danger">Batalkan</button>
                         </a>
                       <?php
@@ -373,7 +373,7 @@ include_once 'navbar.php';
           else :
           ?>
             <script>
-              document.location = 'login.php'
+              document.location.href = 'dahsboard.php'
             </script>
           <?php
           endif;

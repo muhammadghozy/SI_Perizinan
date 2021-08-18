@@ -15,7 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     } else {
         $simpan = "INSERT INTO tuser (id, nama, nim, email,alamat, no_telp, password, level) VALUES('','$nama','$nim','$email','$alamat','$no_telp','$password', '$level')";
         $result = mysqli_query($koneksi, $simpan);
-        var_dump($result);
         if ($result) {
             echo "<script>alert('Akun berhasil dibuat');document.location.href='login.php';</script>";
         } else {

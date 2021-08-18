@@ -6,6 +6,8 @@ include_once 'navbar.php';
 ?>
 
 <head>
+  <title> Status Pengajuan </title>
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
   <style>
     th {
       text-align: center;
@@ -60,12 +62,10 @@ include_once 'navbar.php';
         </div><!-- /.container-fluid -->
       </div>
       <!-- /.content-header -->
-
-      <head>
-        <title> Status Pengajuan </title>
-        <link rel="stylesheet" type="text/css" href="css/styles.css">
-      </head>
       <div>
+      <?php
+          if ($_SESSION['level'] == 'Mahasiswa') :
+          ?>
         <div class="container-fluid">
           <table class="table table-hover">
             <thead>
@@ -186,6 +186,15 @@ include_once 'navbar.php';
             </tbody>
           </table>
         </div>
+        <?php
+          else :
+          ?>
+            <script>
+              document.location.href = 'dahsboard.php'
+            </script>
+          <?php
+          endif;
+          ?>
       </div>
       <div>
         <nav aria-label="Page navigation example">
@@ -261,7 +270,6 @@ include_once 'navbar.php';
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="dist/js/adminlte.js"></script>
-
 </body>
 
 </html>

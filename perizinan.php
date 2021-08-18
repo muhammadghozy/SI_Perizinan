@@ -27,7 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     echo "<script>alert('Permintaan terkirim');</script>";
   } else {
     echo "<script>alert('Permintaan gagal dibuat');</script>";
-    var_dump($result);
   }
 }
 
@@ -35,6 +34,10 @@ session_start();
 include_once 'navbar.php';
 
 ?>
+<head>
+        <title> Form Perizinan </title>
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
@@ -78,12 +81,9 @@ include_once 'navbar.php';
         </div><!-- /.container-fluid -->
       </div>
       <!-- /.content-header -->
-
-      <head>
-        <title> Form Perizinan </title>
-        <link rel="stylesheet" type="text/css" href="css/styles.css">
-      </head>
-
+      <?php
+          if ($_SESSION['level'] == 'Mahasiswa' || $_SESSION['level']=='Admin') :
+          ?>
       <div class="container-fluid">
         <form action="" method="post">
           <div class="form-group">
@@ -249,7 +249,15 @@ include_once 'navbar.php';
           </section>
           <!-- /.content -->
       </div>
-
+      <?php
+          else :
+          ?>
+            <script>
+              document.location.href = 'dahsboard.php'
+            </script>
+          <?php
+          endif;
+          ?>
       <!-- Footer -->
       <footer class="site-footer bg-dark">
         <div class="container">
