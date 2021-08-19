@@ -190,7 +190,7 @@ include_once 'navbar.php';
           else :
           ?>
             <script>
-              document.location.href = 'dahsboard.php'
+              document.location.href = 'dashboard.php'
             </script>
           <?php
           endif;
